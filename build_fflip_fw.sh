@@ -1,10 +1,14 @@
 #! /bin/bash
 
 # Build script for firmware compiling Freifunk Lippe
-# 
-# The files site.conf and site.mk must exist in separate folders in /home/user like this:
-# /home/user/SITES/LIP - /home/user/SITES/LE and so on...
-# Your secret file also has to be in /home/user
+#
+# Created by: Collimas
+# Modified by: Tronde at 2015-10-31
+
+# Variables ###################################################################
+DIR=`pwd`
+SITES=(`ls sites`)
+###############################################################################
 
 cd /home/$USER
 # BO - BAD OEYNHAUSEN
