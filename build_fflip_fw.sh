@@ -8,7 +8,9 @@
 # Variables ###################################################################
 RELEASE="v2015.1.2"
 DIR=`pwd`
-SITES=(`ls $DIR/sites`)
+# SITES=(`ls $DIR/sites`)
+SITES=(BO BS LIP) # Used for testing
+CORES=2 # Specifies the number of jobs (commands) to run simultaneously.
 ###############################################################################
 
 git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
@@ -24,15 +26,15 @@ for SITE in "${SITES[@]}"
     make clean GLUON_TARGET=ar71xx-generic
     make clean GLUON_TARGET=ar71xx-nand
     make clean GLUON_TARGET=mpc85xx-generic
-    make -j6 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=s
-    make -j6 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=s
-    make -j6 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=s
+    make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic # V=s
+    make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand # V=s
+    make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic # V=s
     make manifest GLUON_BRANCH=stable
 #    ./contrib/sign.sh secret images/sysupgrade/stable.manifest
     mkdir -p images/$SITE
     mv images/factory images/$SITE/
     mv images/sysupgrade images/$SITE/
-    rm site/*
+    rm -rf site/*
 done
 
 exit
