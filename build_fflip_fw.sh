@@ -33,8 +33,8 @@ for SITE in "${SITES[@]}"
     make manifest GLUON_BRANCH=stable
     ./contrib/sign.sh $SECRET images/sysupgrade/stable.manifest
     mkdir -p images/$SITE
-    mv images/factory images/$SITE/
-    mv images/sysupgrade images/$SITE/
+    mv -f images/factory images/$SITE/
+    mv -f images/sysupgrade images/$SITE/
     rm -rf site/*
 done
 
