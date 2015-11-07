@@ -14,6 +14,7 @@ CORES=2 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
+rm -rf gluon
 git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
 mkdir gluon/site
 # cp $DIR/secret $DIR/gluon/
@@ -22,7 +23,7 @@ for SITE in "${SITES[@]}"
   do
     cp $DIR/sites/$SITE/site.* $DIR/gluon/site/
     cd gluon
-    git pull origin $RELEASE
+#    git pull origin $RELEASE	# Unnötig, wird beim Repository Start geklont. 
     make update
     make clean GLUON_TARGET=ar71xx-generic
     make clean GLUON_TARGET=ar71xx-nand
