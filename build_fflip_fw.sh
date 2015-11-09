@@ -25,9 +25,9 @@ for SITE in "${SITES[@]}"
     cp $DIR/sites/$SITE/site.* $DIR/gluon/site/
     cd gluon
     make update
-    make clean GLUON_TARGET=ar71xx-generic
-    make clean GLUON_TARGET=ar71xx-nand
-    make clean GLUON_TARGET=mpc85xx-generic
+#    make clean GLUON_TARGET=ar71xx-generic # Zum Test auskommentiert
+#    make clean GLUON_TARGET=ar71xx-nand # Zum Test auskommentiert
+#    make clean GLUON_TARGET=mpc85xx-generic # Zum Test auskommentiert
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic # V=s
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand # V=s
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic # V=s
