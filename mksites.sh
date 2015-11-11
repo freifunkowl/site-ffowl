@@ -14,10 +14,10 @@ SSIDS=(badoeynhausen badsalzuflen detmold Freifunk hornbadmeinberg kalletal lage
 
 for SITE in "${SITES[@]}"
   do
-    sed 's/\<lip\>/$SITE/g' site.conf.example > sites/$SITE/site-test.conf
+    sed "s/\<lip\>/$SITE/g" site.conf.example > sites/$SITE/site-test.conf
 done
 
-for SSID in "${SSIDS[@]}"
-  do
-    sed '/ssid/s/\<lippe\>/$SSID/g' site.mk.example > sites/$SITE/site-test.mk
-done
+# for SSID in "${SSIDS[@]}"
+#   do
+#    sed /ssid/s/\<lippe\>/$SSID/g site.mk.example > sites/$SITE/site-test.mk
+# done
