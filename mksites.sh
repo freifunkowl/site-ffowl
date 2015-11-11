@@ -16,10 +16,6 @@ typeset -i i=0
 for SITE in "${SITES[@]}"
   do
     sed "s/\<lip\>/$SITE/g" site.conf.example | sed "/ssid/s/\<lippe\>/${SSIDS[i]}/g" > sites/$SITE/site-test.conf
+    sed "s/\<lip\>/$SITE/g" site.mk.example > sites/$SITE/site-test.mk
     i=$i+1
 done
-
-# for SSID in "${SSIDS[@]}"
-#   do
-#    sed /ssid/s/\<lippe\>/$SSID/g site.mk.example > sites/$SITE/site-test.mk
-# done
