@@ -19,3 +19,8 @@ for SITE in "${SITES[@]}"
     sed "s/\<lip\>/$SITE/g" site.mk.example > sites/$SITE/site.mk
     i=$i+1
 done
+
+# Sonderfall SSID Freifunk
+mv sites/ff/site.conf sites/ff/site-tmp.conf
+sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites/ff/site-tmp.conf > sites/ff/site.conf
+rm -f sites/ff/site-tmp.conf
