@@ -9,13 +9,13 @@
 # Freifunk-Communities von Freifunk-Lippe.
 ###############################################################################
 
-SITES=(bo bs dt ff hb kt la le lh lip sc ts)
-SSIDS=(badoeynhausen badsalzuflen detmold Freifunk hornbadmeinberg kalletal lage lemgo leopoldshoehe lippe schoetmar 'lippe-test')
+SITES=(bo bs dt ff hb kt la le lh lip sc)
+SSIDS=(badoeynhausen badsalzuflen detmold Freifunk hornbadmeinberg kalletal lage lemgo leopoldshoehe lippe schoetmar)
 typeset -i i=0
 
 for SITE in "${SITES[@]}"
   do
-    sed "s/\<lip\>/$SITE/g" site.conf.example | sed "/ssid/s/\<lippe\>/${SSIDS[i]}/g" > sites/$SITE/site-test.conf
-    sed "s/\<lip\>/$SITE/g" site.mk.example > sites/$SITE/site-test.mk
+    sed "s/\<lip\>/$SITE/g" site.conf.example | sed "/ssid/s/\<lippe\>/${SSIDS[i]}/g" > sites/$SITE/site.conf
+    sed "s/\<lip\>/$SITE/g" site.mk.example > sites/$SITE/site.mk
     i=$i+1
 done
