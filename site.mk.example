@@ -1,11 +1,11 @@
 GLUON_SITE_PACKAGES := \
 	gluon-mesh-batman-adv-14 \
 	gluon-alfred \
-	gluon-announced \
+ 	gluon-announced \
 	gluon-autoupdater \
 	gluon-config-mode-autoupdater \
 	gluon-config-mode-contact-info \
-  gluon-config-mode-core \
+    gluon-config-mode-core \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-hostname \
 	gluon-config-mode-mesh-vpn \
@@ -15,13 +15,13 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-autoupdater \
 	gluon-luci-portconfig \
 	gluon-luci-private-wifi \
-  gluon-luci-wifi-config \
-  gluon-luci-node-role \
+    gluon-luci-wifi-config \
+    gluon-luci-node-role \
 	gluon-next-node \
 	gluon-mesh-vpn-fastd \
 	gluon-radvd \
 	gluon-wan-dnsmasq \
-  gluon-setup-mode \
+    gluon-setup-mode \
 	gluon-status-page \
 	iwinfo \
 	iptables \
@@ -31,7 +31,7 @@ GLUON_SITE_PACKAGES := \
 
 #    gluon-luci-node-role \   => auch in site-conf auskommentiert
 
-DEFAULT_GLUON_RELEASE := 0.7.12-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.7.15-lip-$(shell date '+%Y%m%d')
 
 # Allow overriding the release number from the command line
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
