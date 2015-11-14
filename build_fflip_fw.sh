@@ -23,7 +23,7 @@ mkdir gluon/site
 for SITE in "${SITES[@]}"
   do
     cp $DIR/sites/$SITE/site.* $DIR/gluon/site/
-    cd /home/$USER/fflip-fw/gluon/
+    cd $DIR/gluon/
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic # V=s
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand # V=s
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic # V=s
