@@ -1,7 +1,7 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-14 \
+	gluon-mesh-batman-adv-15 \
 	gluon-alfred \
-	gluon-announced \
+	gluon-respondd \
 	gluon-autoupdater \
 	gluon-config-mode-autoupdater \
 	gluon-config-mode-contact-info \
@@ -23,6 +23,7 @@ GLUON_SITE_PACKAGES := \
 	haveged \
 	iptables \
 	iwinfo
+
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
@@ -47,4 +48,4 @@ GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_PRIORITY ?= 0
 
 # Languages to include
-GLUON_LANGS ?= de en
+GLUON_LANGS ?= de en fr
