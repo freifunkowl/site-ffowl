@@ -9,8 +9,8 @@
 # Freifunk-Communities von Freifunk-Lippe.
 ###############################################################################
 
-SITES=(bo bs dt ff hb kt la le lh lip sc)
-SSIDS=(badoeynhausen badsalzuflen detmold Freifunk hornbadmeinberg kalletal lage lemgo leopoldshoehe lippe schoetmar)
+SITES=(bs dt ff hb kt la le lh lip sc oe)
+SSIDS=(badsalzuflen detmold Freifunk hornbadmeinberg kalletal lage lemgo leopoldshoehe lippe schoetmar oerlinghausen)
 typeset -i i=0
 
 for SITE in "${SITES[@]}"
