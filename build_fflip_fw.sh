@@ -15,8 +15,8 @@ CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
-rm -rf gluon
-git clone https://github.com/freifunk-gluon/gluon.git # gluon -b $RELEASE
+#rm -rf gluon
+#git clone https://github.com/freifunk-gluon/gluon.git # gluon -b $RELEASE
 cp $DIR/sign.sh $DIR/gluon/contrib/
 cp -r $DIR/targets/ $DIR/gluon/
 mkdir gluon/site
