@@ -18,6 +18,7 @@ SECRET=$DIR/secret
 rm -rf gluon
 git clone https://github.com/freifunk-gluon/gluon.git # gluon -b $RELEASE
 cp $DIR/sign.sh $DIR/gluon/contrib/
+cp $DIR/modules $DIR/gluon/
 cp -r $DIR/targets/ $DIR/gluon/
 mkdir gluon/site
 
