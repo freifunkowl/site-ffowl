@@ -11,13 +11,14 @@ RELEASE="v2016.1"
 DIR=`pwd`
 SITES=(`ls $DIR/sites`)
 # SITES=(BO BS LIP) # Used for testing
-CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=8 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
 rm -rf gluon
 git clone https://github.com/freifunk-gluon/gluon.git # gluon -b $RELEASE
 cp $DIR/sign.sh $DIR/gluon/contrib/
+cp $DIR/modules $DIR/gluon/site/
 cp -r $DIR/targets/ $DIR/gluon/
 mkdir gluon/site
 cp $DIR/modules $DIR/gluon/site/
