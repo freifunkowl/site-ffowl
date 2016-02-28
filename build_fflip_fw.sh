@@ -4,21 +4,21 @@
 #
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
-# Modified by: Collimas at 2016-02-08
+# Modified by: Collimas at 2016-02-27
 
 # Variables ###################################################################
 RELEASE="v2016.1"
 DIR=`pwd`
 SITES=(`ls $DIR/sites`)
 # SITES=(BO BS LIP) # Used for testing
-CORES=8 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=7 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
+$DIR/mksites.sh
 rm -rf gluon
 git clone https://github.com/freifunk-gluon/gluon.git # gluon -b $RELEASE
 cp $DIR/sign.sh $DIR/gluon/contrib/
-cp $DIR/modules $DIR/gluon/site/
 cp -r $DIR/targets/ $DIR/gluon/
 mkdir gluon/site
 cp $DIR/modules $DIR/gluon/site/
