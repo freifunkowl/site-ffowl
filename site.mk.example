@@ -14,6 +14,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-admin \
 	gluon-luci-autoupdater \
 	gluon-luci-portconfig \
+	gluon-luci-private-wifi \
 	gluon-luci-wifi-config \
 	gluon-next-node \
 	gluon-mesh-vpn-fastd \
@@ -21,6 +22,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-setup-mode \
 	gluon-status-page \
 	haveged \
+	tro-netwatch \
 	iptables \
 	iwinfo
 
@@ -31,7 +33,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.0-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.1-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
