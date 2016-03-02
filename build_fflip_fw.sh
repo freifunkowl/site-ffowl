@@ -7,11 +7,11 @@
 # Modified by: Collimas at 2016-02-27
 
 # Variables ###################################################################
-RELEASE="v2016.1"
+RELEASE="v2016.1.1"
 DIR=`pwd`
 SITES=(`ls $DIR/sites`)
 # SITES=(BO BS LIP) # Used for testing
-CORES=7 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
