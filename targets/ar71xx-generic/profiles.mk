@@ -117,6 +117,10 @@ $(eval $(call GluonModel,TLWA901,tl-wa901nd-v1,tp-link-tl-wa901n-nd-v1))
 $(eval $(call GluonModel,TLWA901,tl-wa901nd-v2,tp-link-tl-wa901n-nd-v2))
 $(eval $(call GluonModel,TLWA901,tl-wa901nd-v3,tp-link-tl-wa901n-nd-v3))
 
+# TL-MR13U v1
+$(eval $(call GluonProfile,TLMR13U))
+$(eval $(call GluonModel,TLMR13U,tl-mr13u-v1,tp-link-tl-mr13u-v1))
+
 # TL-MR3020 v1
 $(eval $(call GluonProfile,TLMR3020))
 $(eval $(call GluonModel,TLMR3020,tl-mr3020-v1,tp-link-tl-mr3020-v1))
@@ -151,21 +155,26 @@ $(eval $(call GluonModel,UBNT,ubnt-air-gateway,ubiquiti-airgateway))
 $(eval $(call GluonModel,UBNT,ubnt-airrouter,ubiquiti-airrouter))
 
 $(eval $(call GluonModel,UBNT,ubnt-bullet-m,ubiquiti-bullet-m))
-$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-loco-m))
-$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-picostation-m))
-$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-rocket-m))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-nanostation-loco-m2))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-nanostation-loco-m5))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-rocket-m2))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-rocket-m5))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-bullet-m2))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-bullet-m5))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-bullet-m,ubiquiti-picostation-m2))
+
+$(eval $(call GluonModel,UBNT,ubnt-nano-m,ubiquiti-nanostation-m))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-nanostation-m,ubiquiti-nanostation-m2))
+$(eval $(call GluonModelAlias,UBNT,ubiquiti-nanostation-m,ubiquiti-nanostation-m5))
 
 $(eval $(call GluonModel,UBNT,ubnt-loco-m-xw,ubiquiti-loco-m-xw))
-$(eval $(call GluonModel,UBNT,ubnt-nano-m,ubiquiti-nanostation-m))
 $(eval $(call GluonModel,UBNT,ubnt-nano-m-xw,ubiquiti-nanostation-m-xw))
 $(eval $(call GluonModel,UBNT,ubnt-uap-pro,ubiquiti-unifi-ap-pro))
 $(eval $(call GluonModel,UBNT,ubnt-unifi,ubiquiti-unifi))
 $(eval $(call GluonModel,UBNT,ubnt-unifi-outdoor,ubiquiti-unifiap-outdoor))
 $(eval $(call GluonModel,UBNT,ubnt-unifi-outdoor-plus,ubiquiti-unifiap-outdoor+))
 
-ifeq ($(BROKEN),1)
-$(eval $(call GluonModel,UBNT,ubnt-ls-sr71,ubiquiti-ls-sr71)) # BROKEN: Untested
-endif
+$(eval $(call GluonModel,UBNT,ubnt-ls-sr71,ubiquiti-ls-sr71))
 
 
 ## D-Link
@@ -227,9 +236,7 @@ $(eval $(call GluonProfileFactorySuffix,WNDR3700,-squashfs-factory,.img))
 $(eval $(call GluonModel,WNDR3700,wndr3700,netgear-wndr3700))
 $(eval $(call GluonModel,WNDR3700,wndr3700v2,netgear-wndr3700v2))
 $(eval $(call GluonModel,WNDR3700,wndr3800,netgear-wndr3800))
-ifeq ($(BROKEN),1)
-$(eval $(call GluonModel,WNDR3700,wndrmac,netgear-wndrmac)) # BROKEN: untested
-endif
+$(eval $(call GluonModel,WNDR3700,wndrmac,netgear-wndrmac))
 $(eval $(call GluonModel,WNDR3700,wndrmacv2,netgear-wndrmacv2))
 
 ## Allnet
@@ -255,3 +262,9 @@ $(eval $(call GluonModel,MYNETN600,mynet-n600,wd-my-net-n600))
 # WD MyNet N750
 $(eval $(call GluonProfile,MYNETN750))
 $(eval $(call GluonModel,MYNETN750,mynet-n750,wd-my-net-n750))
+
+## Onion
+
+# Omega
+$(eval $(call GluonProfile,OMEGA))
+$(eval $(call GluonModel,OMEGA,onion-omega,onion-omega))
