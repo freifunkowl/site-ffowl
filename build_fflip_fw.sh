@@ -4,7 +4,7 @@
 #
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
-# Modified by: Collimas at 2016-02-27
+# Modified by: Collimas at 2016-03-02
 
 # Variables ###################################################################
 RELEASE="v2016.1.1"
