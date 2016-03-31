@@ -4,10 +4,10 @@
 #
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
-# Modified by: Collimas at 2016-03-09
+# Modified by: Collimas at 2016-03-31
 
 # Variables ###################################################################
-RELEASE="v2016.1.2"
+RELEASE="v2016.1.3"
 DIR=`pwd`
 SITES=(`ls $DIR/sites`)
 # SITES=(BO BS LIP) # Used for testing
@@ -33,9 +33,7 @@ for SITE in "${SITES[@]}"
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=s
     make -j$CORES GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=s
     make manifest GLUON_BRANCH=stable
-    make manifest GLUON_BRANCH=experimental # to be deleted when experimental branch is no longer used
     ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest
-    ./contrib/sign.sh $SECRET output/images/sysupgrade/experimental.manifest # to be deleted when experimental branch is no longer used
     mkdir -p output/images/$SITE
     mv -f output/images/factory output/images/$SITE/
     mv -f output/images/sysupgrade output/images/$SITE/
