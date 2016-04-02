@@ -16,7 +16,7 @@ $(eval $(call GluonModelAlias,CPE510,tp-link-cpe510-v1.0,tp-link-cpe520-v1.1))
 
 # TL-WA701N/ND v1, v2
 $(eval $(call GluonProfile,TLWA701))
-$(eval $(call GluonModel,TLWA701,tl-wa701n-v1,tp-link-tl-wa701n-nd-v1))
+$(eval $(call GluonModel,TLWA701,tl-wa701nd-v1,tp-link-tl-wa701n-nd-v1))
 $(eval $(call GluonModel,TLWA701,tl-wa701nd-v2,tp-link-tl-wa701n-nd-v2))
 
 # TL-WA7510 v1
@@ -27,10 +27,11 @@ $(eval $(call GluonModel,TLWA7510,tl-wa7510n,tp-link-tl-wa7510n-v1))
 $(eval $(call GluonProfile,TLWR703))
 $(eval $(call GluonModel,TLWR703,tl-wr703n-v1,tp-link-tl-wr703n-v1))
 
-# TL-WR710N v1, v2
+# TL-WR710N v1, v2, v2.1
 $(eval $(call GluonProfile,TLWR710))
 $(eval $(call GluonModel,TLWR710,tl-wr710n-v1,tp-link-tl-wr710n-v1))
 $(eval $(call GluonModel,TLWR710,tl-wr710n-v2,tp-link-tl-wr710n-v2))
+$(eval $(call GluonModel,TLWR710,tl-wr710n-v2.1,tp-link-tl-wr710n-v2.1))
 
 # TL-WR740N v1, v3, v4, v5
 $(eval $(call GluonProfile,TLWR740))
@@ -56,14 +57,14 @@ $(eval $(call GluonProfile,TLWA801))
 $(eval $(call GluonModel,TLWA801,tl-wa801nd-v1,tp-link-tl-wa801n-nd-v1))
 $(eval $(call GluonModel,TLWA801,tl-wa801nd-v2,tp-link-tl-wa801n-nd-v2))
 
-# TL-WR841N/ND v3, v5, v7, v8, v9
+# TL-WR841N/ND v3, v5, v7, v8, v9, v10
 $(eval $(call GluonProfile,TLWR841))
-$(eval $(call GluonModel,TLWR841,tl-wr841nd-v3,tp-link-tl-wr841n-nd-v3))
-$(eval $(call GluonModel,TLWR841,tl-wr841nd-v5,tp-link-tl-wr841n-nd-v5))
-$(eval $(call GluonModel,TLWR841,tl-wr841nd-v7,tp-link-tl-wr841n-nd-v7))
-$(eval $(call GluonModel,TLWR841,tl-wr841n-v8,tp-link-tl-wr841n-nd-v8))
-$(eval $(call GluonModel,TLWR841,tl-wr841n-v9,tp-link-tl-wr841n-nd-v9))
-$(eval $(call GluonModel,TLWR841,tl-wr841n-v10,tp-link-tl-wr841n-nd-v10))
+$(eval $(call GluonModel,TLWR841,tl-wr841-v3,tp-link-tl-wr841n-nd-v3))
+$(eval $(call GluonModel,TLWR841,tl-wr841-v5,tp-link-tl-wr841n-nd-v5))
+$(eval $(call GluonModel,TLWR841,tl-wr841-v7,tp-link-tl-wr841n-nd-v7))
+$(eval $(call GluonModel,TLWR841,tl-wr841-v8,tp-link-tl-wr841n-nd-v8))
+$(eval $(call GluonModel,TLWR841,tl-wr841-v9,tp-link-tl-wr841n-nd-v9))
+$(eval $(call GluonModel,TLWR841,tl-wr841-v10,tp-link-tl-wr841n-nd-v10))
 
 # TL-WR842N/ND v1, v2
 $(eval $(call GluonProfile,TLWR842))
@@ -178,7 +179,10 @@ $(eval $(call GluonModel,UBNT,ubnt-unifi,ubiquiti-unifi))
 $(eval $(call GluonModel,UBNT,ubnt-unifi-outdoor,ubiquiti-unifiap-outdoor))
 $(eval $(call GluonModel,UBNT,ubnt-unifi-outdoor-plus,ubiquiti-unifiap-outdoor+))
 
-$(eval $(call GluonModel,UBNT,ubnt-ls-sr71,ubiquiti-ls-sr71))
+ifeq ($(BROKEN),1)
+$(eval $(call GluonModel,UBNT,ubnt-ls-sr71,ubiquiti-ls-sr71)) # BROKEN: Untested
+endif
+
 
 ## D-Link
 
@@ -239,7 +243,9 @@ $(eval $(call GluonProfileFactorySuffix,WNDR3700,-squashfs-factory,.img))
 $(eval $(call GluonModel,WNDR3700,wndr3700,netgear-wndr3700))
 $(eval $(call GluonModel,WNDR3700,wndr3700v2,netgear-wndr3700v2))
 $(eval $(call GluonModel,WNDR3700,wndr3800,netgear-wndr3800))
-$(eval $(call GluonModel,WNDR3700,wndrmac,netgear-wndrmac))
+ifeq ($(BROKEN),1)
+$(eval $(call GluonModel,WNDR3700,wndrmac,netgear-wndrmac)) # BROKEN: untested
+endif
 $(eval $(call GluonModel,WNDR3700,wndrmacv2,netgear-wndrmacv2))
 
 ## Allnet
