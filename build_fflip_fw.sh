@@ -38,7 +38,6 @@ for SITE in "${SITES[@]}"
     mv -f output/images/factory output/images/$SITE/
     mv -f output/images/sysupgrade output/images/$SITE/
     rm -rf site/*
-    rm openwrt/staging_dir/host/.prereq-build openwrt/staging_dir/host/bin/bash
 done
 
 exit
