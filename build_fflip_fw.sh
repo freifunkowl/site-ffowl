@@ -37,7 +37,7 @@ for SITE in "${SITES[@]}"
     mkdir -p output/images/$SITE
     mv -f output/images/factory output/images/$SITE/
     mv -f output/images/sysupgrade output/images/$SITE/
-    rm -rf site/*
+    rm $DIR/gluon/site/site.*
 done
 
 exit
