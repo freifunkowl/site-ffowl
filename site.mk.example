@@ -22,7 +22,10 @@ GLUON_SITE_PACKAGES := \
 	gluon-setup-mode \
 	gluon-status-page \
 	haveged \
-	tro-netwatch \
+	gluon-aptimeclock \
+	gluon-nightboot \
+	gluon-txpowerfix \
+	gluon-vpnlimittimeclock \
 	iptables \
 	iwinfo
 
@@ -33,7 +36,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.4-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.5-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
