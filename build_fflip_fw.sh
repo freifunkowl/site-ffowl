@@ -4,7 +4,7 @@
 #
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
-# Modified by: Collimas at 2016-04-06
+# Modified by: Collimas at 2016-04-17
 
 # Variables ###################################################################
 RELEASE="v2016.1.3"
@@ -17,7 +17,7 @@ SECRET=$DIR/secret
 
 $DIR/mksites.sh
 rm -rf gluon
-git clone https://github.com/freifunk-gluon/gluon.git # gluon -b $RELEASE
+git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
 cp $DIR/sign.sh $DIR/gluon/contrib/
 mkdir gluon/site
 cp $DIR/modules $DIR/gluon/site/
