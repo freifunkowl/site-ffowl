@@ -62,7 +62,7 @@ for SITE in "${SITES[@]}"
     mv $DIR/gluon/make*.log output/images/logs
 done
 
-tar -cvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images/logs
+tar -czvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images/logs
 rm -rf $DIR/gluon/output/images/logs
 
 echo "Finished building Stable branch."
@@ -88,7 +88,7 @@ for SITE in "${SITES[@]}"
     mv $DIR/gluon/make*.log output/images-experimental/logs
 done
 
-tar -cvf $DIR/gluon/output/buildlog_experimental.tar $DIR/gluon/output/images-experimental/logs
+tar -czvf $DIR/gluon/output/buildlog_experimental.tar $DIR/gluon/output/images-experimental/logs
 rm -rf $DIR/gluon/output/images-experimental/logs
 
 echo "Finished building Experimental branch."
