@@ -21,10 +21,8 @@ $DIR/mksites.sh
 if [ -d "$DIR/gluon" ]; then
   cd $DIR/gluon
   cp $DIR/sites/ff/site.* $DIR/gluon/site/
-  git submodule update --remote gluon && git add gluon
-  git commit -m "update gluon"
-  git push
   make update
+  git submodule update --remote gluon && git add gluon
 fi
 
 # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
