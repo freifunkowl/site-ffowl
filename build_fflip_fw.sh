@@ -30,6 +30,7 @@ if [ ! -d "$DIR/gluon" ]; then
   cd $DIR
   git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
   cd $DIR/gluon
+  cp $DIR/sites/ff/site.* $DIR/gluon/site/
   make update
 fi
 
