@@ -27,6 +27,10 @@ mv sites/ff/site.conf sites/ff/site-tmp.conf
 sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites/ff/site-tmp.conf > sites/ff/site.conf
 rm -f sites/ff/site-tmp.conf
 
+SITES=(bs dt ff hb kt la le lh lip sc oe ex ad)
+SSIDS=(badsalzuflen detmold Freifunk hornbadmeinberg kalletal lage lemgo leopoldshoehe lippe schoetmar oerlinghausen extertal augustdorf)
+typeset -i i=0
+
 # Erzeuge Configs fuer Experimental-Branch
 for SITE in "${SITES[@]}"
   do
