@@ -22,7 +22,7 @@ if [ -d "$DIR/gluon" ]; then
   cd $DIR/gluon
   cp $DIR/sites/ff/site.* $DIR/gluon/site/
   make update
-  git submodule update --remote gluon && git add gluon
+  git submodule update --remote gluon
 fi
 
 # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
@@ -60,6 +60,9 @@ for SITE in "${SITES[@]}"
     mv $DIR/gluon/make*.log output/images/logs
 done
 
+tar -cvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images/logs
+rm -rf $DIR/gluon/output/images/logs
+
 echo "Finished building Stable branch."
 
 # This creates images for the Experimental branch
@@ -82,6 +85,9 @@ for SITE in "${SITES[@]}"
     mkdir $DIR/gluon/output/images-experimental/logs
     mv $DIR/gluon/make*.log output/images-experimental/logs
 done
+
+tar -cvf $DIR/gluon/output/buildlog_experimental.tar $DIR/gluon/output/images-experimental/logs
+rm -rf $DIR/gluon/output/images-experimental/logs
 
 echo "Finished building Experimental branch."
 
