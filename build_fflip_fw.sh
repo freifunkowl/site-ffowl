@@ -5,6 +5,7 @@
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
 # Modified by: Tronde at 2016-04-21
+# Modified by: Collimas at 2016-04-21
 
 # Variables ###################################################################
 RELEASE="v2016.1.3"
@@ -34,10 +35,11 @@ build_stable_branch(){
       rm $DIR/gluon/site/site.*
       mkdir $DIR/gluon/output/images/logs
       mv $DIR/gluon/make*.log output/images/logs
+      echo "Finished building Stable branch."
   done
 }
 
-build_experimantal_branch(){
+build_experimental_branch(){
   for SITE in "${SITES[@]}"
     do
       cp $DIR/sites-experimental/$SITE/site.* $DIR/gluon/site/
@@ -54,21 +56,19 @@ build_experimantal_branch(){
       rm $DIR/gluon/site/site.*
       mkdir $DIR/gluon/output/images-experimental/logs
       mv $DIR/gluon/make*.log output/images-experimental/logs
+      echo "Finished building Experimental branch."
   done
 }
-###############################################################################
 
-# Main ########################################################################
-tar -czvf $DIR/gluon/output/buildlog_experimental.tar $DIR/gluon/output/images-experimental/logs
-rm -rf $DIR/gluon/output/images-experimental/logs
+create_logs_stable(){
+  tar -czvf $DIR/gluon/output/buildlog_experimental.tar $DIR/gluon/output/images-experimental/logs
+  rm -rf $DIR/gluon/output/images-experimental/logs
+}
 
-echo "Finished building Experimental branch."
-
-tar -czvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images/logs
-rm -rf $DIR/gluon/output/images/logs
-
-echo "Finished building Stable branch."
-
+create_logs_experimental(){
+  tar -czvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images/logs
+  rm -rf $DIR/gluon/output/images/logs
+}
 
 $DIR/mksites.sh
 
@@ -96,9 +96,11 @@ fi
 cp $DIR/sign.sh $DIR/gluon/contrib/
 cp $DIR/modules $DIR/gluon/site/
 build_stable_branch
+create_logs_stable
 
 # This creates images for the Experimental branch
 # Uncomment if you want to build Experimental images
-# build_experimantal_branch
+#build_experimental_branch
+#create_logs_experimental
 
 exit
