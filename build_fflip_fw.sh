@@ -11,7 +11,7 @@ RELEASE="v2016.1.3"
 DIR=`pwd`
 SITES=(`ls $DIR/sites`)
 # SITES=(BO BS LIP) # Used for testing
-CORES=8 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
