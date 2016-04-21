@@ -12,4 +12,4 @@ Die Freifunk-Lippe-Firmware basiert auf den folgenden Gluon Versionen:
 
 All external repositories now have been transferred to our own repo on Github to be more safe on changes on the external sites.
 
-- Modified build script for faster building an creating log files
+- Modified build script for faster building and creating log files
