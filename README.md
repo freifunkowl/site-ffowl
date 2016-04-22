@@ -11,3 +11,5 @@ Die Freifunk-Lippe-Firmware basiert auf den folgenden Gluon Versionen:
 - Added time switch for throttling the mesh-vpn if necessary 
 
 All external repositories now have been transferred to our own repo on Github to be more safe on changes on the external sites.
+
+- Modified build script for faster building and creating log files
