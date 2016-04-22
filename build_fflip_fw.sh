@@ -61,13 +61,14 @@ build_experimental_branch(){
 }
 
 create_logs_stable(){
-  tar -czvf $DIR/gluon/output/buildlog_experimental.tar $DIR/gluon/output/images-experimental/logs
-  rm -rf $DIR/gluon/output/images-experimental/logs
+  tar -czvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images/logs
+  rm -rf $DIR/gluon/output/images/logs
 }
 
 create_logs_experimental(){
-  tar -czvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images/logs
-  rm -rf $DIR/gluon/output/images/logs
+
+  tar -czvf $DIR/gluon/output/buildlog_experimental.tar $DIR/gluon/output/images-experimental/logs
+  rm -rf $DIR/gluon/output/images-experimental/logs
 }
 
 $DIR/mksites.sh
