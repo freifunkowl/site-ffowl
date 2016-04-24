@@ -17,12 +17,14 @@ typeset -i i=0
 # Funktionen ##################################################################
 # Erzeuge Configs fuer Stable-Branch
 create_stable_configs(){
-  for SITE in "${SITES[@]}"
-    do
-      sed "s/\<lip\>/$SITE/g" site.conf.example | sed "/ssid/s/\<lippe\>/${SSIDS[i]}/g" > sites/$SITE/site.conf
-      sed "s/\<lip\>/$SITE/g" site.mk.example > sites/$SITE/site.mk
-      i=$i+1
-  done
+  mkdir -p sites
+    for SITE in "${SITES[@]}"
+      do
+        mkdir -p sites/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.example | sed "/ssid/s/\<lippe\>/${SSIDS[i]}/g" > sites/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.example > sites/$SITE/site.mk
+        i=$i+1
+    done
 }
 
 # Sonderfall SSID Freifunk - Stable
@@ -34,12 +36,14 @@ create_stable_ssid_freifunk(){
 
 # Erzeuge Configs fuer Experimental-Branch
 create_experimental_config(){
-  for SITE in "${SITES[@]}"
-    do
-      sed "s/\<lip\>/$SITE/g" site.conf.experimental.example | sed "/ssid/s/\<lippe\>/${SSIDS[i]}/g" > sites-experimental/$SITE/site.conf
-      sed "s/\<lip\>/$SITE/g" site.mk.experimental.example > sites-experimental/$SITE/site.mk
-    i=$i+1
-  done
+  mkdir -p sites-experimental
+    for SITE in "${SITES[@]}"
+      do
+        mkdir -p sites-experimental/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.experimental.example | sed "/ssid/s/\<lippe\>/${SSIDS[i]}/g" > sites-experimental/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.experimental.example > sites-experimental/$SITE/site.mk
+      i=$i+1
+    done
 }
 
 # Sonderfall SSID Freifunk - Experimental
