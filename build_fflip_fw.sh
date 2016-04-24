@@ -7,12 +7,15 @@
 # Modified by: Tronde at 2016-04-21
 # Modified by: Collimas at 2016-04-21
 
+# Voraussetzungen #############################################################
+DIR=`pwd`
+$DIR/mksites.sh
+
 # Variables ###################################################################
 RELEASE="v2016.1.3"
-DIR=`pwd`
 SITES=(`ls $DIR/sites`)
-# SITES=(BO BS LIP) # Used for testing
-CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
+#SITES=(BS LIP) # Used for testing
+CORES=2 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
@@ -71,7 +74,6 @@ create_logs_experimental(){
   rm -rf $DIR/gluon/output/images-experimental/logs
 }
 
-$DIR/mksites.sh
 
 # If gluon directory exists update to latest master and push this into actual repo
 if [ -d "$DIR/gluon" ]
