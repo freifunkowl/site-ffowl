@@ -12,12 +12,12 @@
 # Variablen ###################################################################
 SITES=(bs dt ff hb kt la le lh lip sc oe ex ad)
 SSIDS=(badsalzuflen detmold Freifunk hornbadmeinberg kalletal lage lemgo leopoldshoehe lippe schoetmar oerlinghausen extertal augustdorf)
-typeset -i i=0
 
 # Funktionen ##################################################################
 # Erzeuge Configs fuer Stable-Branch
 create_stable_configs(){
   mkdir -p sites
+  typeset -i i=0
     for SITE in "${SITES[@]}"
       do
         mkdir -p sites/$SITE
@@ -37,6 +37,7 @@ create_stable_ssid_freifunk(){
 # Erzeuge Configs fuer Experimental-Branch
 create_experimental_config(){
   mkdir -p sites-experimental
+  typeset -i i=0
     for SITE in "${SITES[@]}"
       do
         mkdir -p sites-experimental/$SITE
