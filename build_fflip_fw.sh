@@ -33,7 +33,7 @@ build_stable_branch(){
       mv -f output/images/factory output/images/$SITE/
       mv -f output/images/sysupgrade output/images/$SITE/
       rm $DIR/gluon/site/site.*
-      mkdir $DIR/gluon/output/images/logs
+      mkdir -p $DIR/gluon/output/images/logs
       mv $DIR/gluon/make*.log output/images/logs
       echo "Finished building Stable branch."
   done
@@ -54,7 +54,7 @@ build_experimental_branch(){
       mv -f output/images/factory output/images-experimental/$SITE/
       mv -f output/images/sysupgrade output/images-experimental/$SITE/
       rm $DIR/gluon/site/site.*
-      mkdir $DIR/gluon/output/images-experimental/logs
+      mkdir -p $DIR/gluon/output/images-experimental/logs
       mv $DIR/gluon/make*.log output/images-experimental/logs
       echo "Finished building Experimental branch."
   done
@@ -78,7 +78,7 @@ if [ -d "$DIR/gluon" ]
   then
     cd $DIR/gluon
       if [ ! -d "$DIR/gluon/site" ]; then
-        mkdir $DIR/gluon/site
+        mkdir -p $DIR/gluon/site
       fi
     cp $DIR/sites/ff/site.* $DIR/gluon/site/
     make update
@@ -88,7 +88,7 @@ if [ -d "$DIR/gluon" ]
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
     git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
-    mkdir $DIR/gluon/site
+    mkdir -p $DIR/gluon/site
     cp $DIR/sites/ff/site.* $DIR/gluon/site/
     cd $DIR/gluon
     make update
