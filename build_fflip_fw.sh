@@ -89,7 +89,7 @@ if [ -d "$DIR/gluon" ]
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
-    git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
+    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
     mkdir -p $DIR/gluon/site
     cp $DIR/sites/ff/site.* $DIR/gluon/site/
     cd $DIR/gluon
