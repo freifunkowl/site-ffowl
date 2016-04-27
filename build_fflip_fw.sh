@@ -12,10 +12,10 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2016.1.3"
+RELEASE="v2016.1.4"
 SITES=(`ls $DIR/sites`)
 #SITES=(BS LIP) # Used for testing
-CORES=2 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
