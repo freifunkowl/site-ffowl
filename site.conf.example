@@ -78,7 +78,7 @@
 	mtu = 1364,
 	brokers = {
 		'gw01.freifunk-lippe.de:20001',	
-		'gw02.freifunk-lippe.de:20002',	
+		'gw02.freifunk-lippe.de:20001',	
                 },
 				
 		bandwidth_limit = {
