@@ -16,8 +16,8 @@
   site_code = 'fflip',
 
   -- Prefixes used within the mesh. Both are required.
-  prefix4 = '10.138.0.0/16',
-  prefix6 = 'fe42:ffee:ff42::/64',
+  prefix4 = '10.15.0.0/21',
+  prefix6 = '2a03:2260:2004:100::/64',
 
   -- Timezone of your community.
   -- See http://wiki.openwrt.org/doc/uci/system#time_zones
@@ -25,7 +25,7 @@
 
   -- List of NTP servers in your community.
   -- Must be reachable using IPv6!
-  ntp_servers = {'ntp.fflip','0.de.pool.ntp.org'},
+  ntp_servers = {'0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org'},
 
   -- Wireless regulatory domain of your community.
   regdom = 'DE',
@@ -43,7 +43,7 @@
 
     mesh = {
       -- Adjust these values!
-      id = 'fflip-mesh',
+      id = 'fflip-mesh-01',
       mcast_rate = 12000,
       -- disabled = true, (optional)
     },
@@ -58,7 +58,7 @@
       ssid = 'lippe.freifunk.net',
     },
     mesh = {
-      id = 'fflip-mesh',
+      id = 'fflip-mesh-01',
       mcast_rate = 12000,
     },
  },
@@ -67,104 +67,30 @@
   -- connected to using a known IP address.
   next_node = {
     -- anycast IPs of all nodes
-    ip4 = '10.138.0.1',
-    ip6 = 'fe42:ffee:ff42::1',
+    ip4 = '10.15.0.1',
+    ip6 = '2a03:2260:2004:100::1',
 
     -- anycast MAC of all nodes
-    mac = 'de:42:42:42:42:42',
+    mac = 'de:42:ab:cd:ef:42',
   },
 
-  -- Options specific to routing protocols (optional)
-  -- mesh = {
-    -- Options specific to the batman-adv routing protocol (optional)
-    -- batman_adv = {
-      -- Gateway selection class (optional)
-      -- The default class 20 is based on the link quality (TQ) only,
-      -- class 1 is calculated from both the TQ and the announced bandwidth
-      -- gw_sel_class = 1,
-    -- },
-  -- },
-
-  -- Refer to http://fastd.readthedocs.org/en/latest/ to better understand
-  -- what these options do.
-  fastd_mesh_vpn = {
-    -- List of crypto-methods to use.
-    methods = {'salsa2012+umac'},
-    enabled = true,
-    -- configurable = true,
-
-    mtu = 1406,
-    groups = {
-      backbone = {
-        -- Limit number of connected peers to reduce bandwidth.
-        limit = 2,
-
-        -- List of peers.
-        peers = {
-gw01 = {
-            key = 'f66a3ac1504575c4245770b10df695b5ae79d9617b0b539c34678105ea1cf838',
-            remotes = {'ipv4 "gw01.freifunk-lippe.de" port 1234'},
-          },
-gw02 = {
-            key = '6f7d119e821c0dae265681ffa59d7ca7f35b99db0dc85dbf2d19639c467c4bd9',
-            remotes = {'ipv4 "gw02.freifunk-lippe.de" port 1234'},
-          },
-gw03 = {
-            key = 'e14d2eec731ac228d6d32c1b2931b4e043acc95088f386b3336e1c65f41ce0d6',
-            remotes = {'ipv4 "gw03.freifunk-lippe.de" port 1234'},
-          },
-gw04 = {
-            key = 'e376f10a6806ceb3c95ac13f13003f0eb33f523a3f14a635c9272114f3548e54',
-            remotes = {'ipv4 "gw04.freifunk-lippe.de" port 1234'},
-          },
-gw05 = {
-            key = 'e103cd0f0eb6bf8db98a55951d719ad95b3fdc8a57bea2a937e7c5028d562e14',
-            remotes = {'ipv4 "gw05.freifunk-lippe.de" port 1234'},
-          },
-gw06 = {
-            key = 'a4e93be4b60a33ef6812b0291a6bfbbb528cd87de3e0537242f4f8c3093373a4',
-            remotes = {'ipv4 "gw06.freifunk-lippe.de" port 1234'},
-          },
-gw07 = {
-            key = 'f767cb62d0b236e14f27496803aeccc99cffba1f9e99a7f8c0d066668edf557a',
-            remotes = {'ipv4 "gw07.freifunk-lippe.de" port 1234'},
-          },
-gw08 = {
-            key = '73a513fcf7c7b28c4fa8aa2593aaa5962acc76ce65d0c44c83118394d7ed1aa4',
-            remotes = {'ipv4 "gw08.freifunk-lippe.de" port 1234'},
-          },
-        },
-
-        -- Optional: nested peer groups
-        -- groups = {
-        --   backbone_sub = {
-        --     ...
-        --   },
-        --   ...
-        -- },
-      },
-      -- Optional: additional peer groups, possibly with other limits
-      -- backbone2 = {
-      --   ...
-      -- },
-    },
-
-    bandwidth_limit = {
-      -- The bandwidth limit can be enabled by default here.
-      enabled = false,
-
-      -- Default upload limit (kbit/s).
-      egress = 200,
-
-      -- Default download limit (kbit/s).
-      ingress = 3000,
-    },
-  },
+  tunneldigger_mesh_vpn = {
+	mtu = 1364,
+	brokers = {
+		'gw01.freifunk-lippe.de:20001',	
+		'gw02.freifunk-lippe.de:20001',	
+                },
+				
+		bandwidth_limit = {
+		    enabled = false,
+		    ingress = 25000,
+		    egress = 5000,
+		},
+	},
 
   autoupdater = {
     branch = 'stable',
 
-    -- List of branches. You may define multiple branches.
     branches = {
       stable = {
         name = 'stable',
@@ -208,19 +134,4 @@ gw08 = {
     },
   },
 
-  -- Node roles
-  -- roles = {
-  --   default = 'node',
-  --   list = {
-  --     'node',
-  --     'test',
-  --     'backbone',
-  --     'service',
-  --   },
-  -- },
-
-  -- Skip setup mode (config mode) on first boot
-   setup_mode = {
-    skip = true,
-   },
 }
