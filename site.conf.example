@@ -16,8 +16,8 @@
   site_code = 'fflip',
 
   -- Prefixes used within the mesh. Both are required.
-  prefix4 = '10.15.0.0/18',
-  prefix6 = '2a03:2260:2004::/48',
+  prefix4 = '10.15.0.0/21',
+  prefix6 = '2a03:2260:2004:100::/64',
 
   -- Timezone of your community.
   -- See http://wiki.openwrt.org/doc/uci/system#time_zones
@@ -43,7 +43,7 @@
 
     mesh = {
       -- Adjust these values!
-      id = 'fflip-mesh',
+      id = 'fflip-mesh-01',
       mcast_rate = 12000,
       -- disabled = true, (optional)
     },
@@ -58,7 +58,7 @@
       ssid = 'lippe.freifunk.net',
     },
     mesh = {
-      id = 'fflip-mesh',
+      id = 'fflip-mesh-01',
       mcast_rate = 12000,
     },
  },
@@ -68,17 +68,17 @@
   next_node = {
     -- anycast IPs of all nodes
     ip4 = '10.15.0.1',
-    ip6 = '2a03:2260:2004:1000::1',
+    ip6 = '2a03:2260:2004:100::1',
 
     -- anycast MAC of all nodes
-    mac = 'de:ff:ab:cd:ef:42',
+    mac = 'de:42:ab:cd:ef:42',
   },
 
   tunneldigger_mesh_vpn = {
 	mtu = 1364,
 	brokers = {
 		'gw01.freifunk-lippe.de:20001',	
-		'gw02.freifunk-lippe.de:20002',	
+		'gw02.freifunk-lippe.de:20001',	
                 },
 				
 		bandwidth_limit = {
@@ -134,8 +134,4 @@
     },
   },
 
-  -- Skip setup mode (config mode) on first boot
-   setup_mode = {
-    skip = true,
-   },
 }
