@@ -22,7 +22,7 @@ SITESEX2=(`ls $DIR/sites-d02-experimental`)
 SITESEX3=(`ls $DIR/sites-d03-experimental`)
 SITESEX4=(`ls $DIR/sites-d04-experimental`)
 #
-CORES=8 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
@@ -270,13 +270,13 @@ create_logs_stable_d04
 
 # This creates images for the Experimental branch
 # Uncomment if you want to build Experimental images
-build_experimental_branch_d01
-create_logs_experimental_d01
-build_experimental_branch_d02
-create_logs_experimental_d02
-build_experimental_branch_d03
-create_logs_experimental_d03
-build_experimental_branch_d01
-create_logs_experimental_d04
+#build_experimental_branch_d01
+#create_logs_experimental_d01
+#build_experimental_branch_d02
+#create_logs_experimental_d02
+#build_experimental_branch_d03
+#create_logs_experimental_d03
+#build_experimental_branch_d01
+#create_logs_experimental_d04
 
 exit
