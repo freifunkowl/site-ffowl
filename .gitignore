@@ -12,3 +12,6 @@ sites-d03-experimental/
 sites-d04/
 sites-d04-experimental/
 secret
+copymanifest.sh
+dowork.sh
+uploadfw.sh
