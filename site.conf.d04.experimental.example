@@ -97,7 +97,7 @@
       stable = {
         name = 'stable',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.fflip/stable/d04/lip/upgrade', 'http://update.freifunk-lippe.de/stable/d04/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d04/lip/upgrade'},
+        mirrors = {'http://update.freifunk-lippe.de/stable/d04/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d04/lip/upgrade'},
         good_signatures = 2,
         -- List of public keys of maintainers.
         pubkeys = {
@@ -110,7 +110,7 @@
       beta = {
         name = 'beta',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.fflip/beta/d04/lip/upgrade', 'http://update.freifunk-lippe.de/beta/d04/lip/upgrade', 'http://update2.freifunk-lippe.de/beta/d04/lip/upgrade'},
+        mirrors = {'http://update.freifunk-lippe.de/beta/d04/lip/upgrade', 'http://update2.freifunk-lippe.de/beta/d04/lip/upgrade'},
         good_signatures = 1,
         -- List of public keys of maintainers.
         pubkeys = {
@@ -123,7 +123,7 @@
 	  experimental = {
         name = 'experimental',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.fflip/experimental/d04/lip/upgrade', 'http://update.freifunk-lippe.de/experimental/d04/lip/upgrade', 'http://update2.freifunk-lippe.de/experimental/d04/lip/upgrade'},
+        mirrors = {'http://update.freifunk-lippe.de/experimental/d04/lip/upgrade', 'http://update2.freifunk-lippe.de/experimental/d04/lip/upgrade'},
         good_signatures = 1,
         -- List of public keys of maintainers.
         pubkeys = {
