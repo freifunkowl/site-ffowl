@@ -252,7 +252,7 @@ if [ -d "$DIR/gluon" ]
     cd $DIR
     git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
     mkdir -p $DIR/gluon/site
-    cp $DIR/sites/ff/site.* $DIR/gluon/site/
+    cp $DIR/sites-d01/ff/site.* $DIR/gluon/site/
     cd $DIR/gluon
     make update
 fi
