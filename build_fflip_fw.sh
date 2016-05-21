@@ -243,7 +243,7 @@ if [ -d "$DIR/gluon" ]
       if [ ! -d "$DIR/gluon/site" ]; then
         mkdir -p $DIR/gluon/site
       fi
-    cp $DIR/sites/ff/site.* $DIR/gluon/site/
+    cp $DIR/sites-d01/ff/site.* $DIR/gluon/site/
     make update
     git pull
     git submodule update --remote gluon
