@@ -1,0 +1,139 @@
+-- This is an example site configuration for Gluon v2016.1+
+--
+-- Take a look at the documentation located at
+-- http://gluon.readthedocs.org/ for details.
+--
+-- This configuration will not work as it. You're required to make
+-- community specific changes to it!
+{
+  -- Used for generated hostnames, e.g. freifunk-abcdef123456. (optional)
+  hostname_prefix = 'fflip-d03-lip-',
+
+  -- Name of the community.
+  site_name = 'Freifunk Lippe Domaene 03',
+
+  -- Shorthand of the community.
+  site_code = 'fflip',
+
+  -- Prefixes used within the mesh. Both are required.
+  prefix4 = '10.15.16.0/21',
+  prefix6 = '2a03:2260:2004:300::/64',
+
+  -- Timezone of your community.
+  -- See http://wiki.openwrt.org/doc/uci/system#time_zones
+  timezone = 'CET-1CEST,M3.5.0,M10.5.0/3',  -- Europe/Berlin
+
+  -- List of NTP servers in your community.
+  -- Must be reachable using IPv6!
+  ntp_servers = {'0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org'},
+
+  -- Wireless regulatory domain of your community.
+  regdom = 'DE',
+
+  -- Wireless configuration for 2.4 GHz interfaces.
+  wifi24 = {
+    -- Wireless channel.
+    channel = 9,
+
+    -- ESSID used for client network.
+    ap = {
+      ssid = 'lippe.freifunk.net',
+      -- disabled = true, (optional)
+    },
+
+    mesh = {
+      -- Adjust these values!
+      id = 'fflip-mesh-03',
+      mcast_rate = 12000,
+      -- disabled = true, (optional)
+    },
+ },
+
+  -- Wireless configuration for 5 GHz interfaces.
+  -- This should be equal to the 2.4 GHz variant, except
+  -- for channel.
+  wifi5 = {
+    channel = 44,
+    ap = {
+      ssid = 'lippe.freifunk.net',
+    },
+    mesh = {
+      id = 'fflip-mesh-03',
+      mcast_rate = 12000,
+    },
+ },
+
+  -- The next node feature allows clients to always reach the node it is
+  -- connected to using a known IP address.
+  next_node = {
+    -- anycast IPs of all nodes
+    ip4 = '10.15.16.1',
+    ip6 = '2a03:2260:2004:300::1',
+
+    -- anycast MAC of all nodes
+    mac = 'de:42:ab:cd:ef:44',
+  },
+
+  tunneldigger_mesh_vpn = {
+	mtu = 1364,
+	brokers = {
+		'gw01.freifunk-lippe.de:20003',	
+		'gw02.freifunk-lippe.de:20003',
+		'gw03.freifunk-lippe.de:20003',
+		'gw04.freifunk-lippe.de:20003',
+                },
+				
+		bandwidth_limit = {
+		    enabled = false,
+		    ingress = 25000,
+		    egress = 5000,
+		},
+	},
+
+  autoupdater = {
+    branch = 'stable',
+
+    branches = {
+      stable = {
+        name = 'stable',
+        -- List of mirrors to fetch images from. IPv6 required!
+        mirrors = {'http://update.freifunk-lippe.de/stable/d03/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d03/lip/upgrade'},
+        good_signatures = 2,
+        -- List of public keys of maintainers.
+        pubkeys = {
+                '6c36b7cd1c78b7107994fccc6d9d6d31ba2bcb04f281f114a5a9e1043efef594', -- Michael
+                'e864d8c809fff69a150583519976e6f2edc413e4e74122bc6b2bd218e6b508d3', -- Hauke
+                '523b9680e41b04e28ef9f839856498859930e3033fd39a7118305f2e0fbc205c', -- Andre
+                '57a43b0d8cd7af864dedee693ba364e50324c78da4a929067a9eea8f8aa6b768', -- Joerg
+        },
+        },
+      beta = {
+        name = 'beta',
+        -- List of mirrors to fetch images from. IPv6 required!
+        mirrors = {'http://update.freifunk-lippe.de/beta/d03/lip/upgrade', 'http://update2.freifunk-lippe.de/beta/d03/lip/upgrade'},
+        good_signatures = 1,
+        -- List of public keys of maintainers.
+        pubkeys = {
+                '6c36b7cd1c78b7107994fccc6d9d6d31ba2bcb04f281f114a5a9e1043efef594', -- Michael
+                'e864d8c809fff69a150583519976e6f2edc413e4e74122bc6b2bd218e6b508d3', -- Hauke
+                '523b9680e41b04e28ef9f839856498859930e3033fd39a7118305f2e0fbc205c', -- Andre
+                '57a43b0d8cd7af864dedee693ba364e50324c78da4a929067a9eea8f8aa6b768', -- Joerg
+        },
+        },	  
+	  experimental = {
+        name = 'experimental',
+        -- List of mirrors to fetch images from. IPv6 required!
+        mirrors = {'http://update.freifunk-lippe.de/experimental/d03/lip/upgrade', 'http://update2.freifunk-lippe.de/experimental/d03/lip/upgrade'},
+        good_signatures = 1,
+        -- List of public keys of maintainers.
+        pubkeys = {
+                '6c36b7cd1c78b7107994fccc6d9d6d31ba2bcb04f281f114a5a9e1043efef594', -- Michael
+                'e864d8c809fff69a150583519976e6f2edc413e4e74122bc6b2bd218e6b508d3', -- Hauke
+                '523b9680e41b04e28ef9f839856498859930e3033fd39a7118305f2e0fbc205c', -- Andre
+                '57a43b0d8cd7af864dedee693ba364e50324c78da4a929067a9eea8f8aa6b768', -- Joerg
+         },
+      },
+    },
+  },
+
+}

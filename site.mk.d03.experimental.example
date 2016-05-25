@@ -1,5 +1,5 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-14 \
+	ffpb-ebtables-net-rules \
 	gluon-alfred \
 	gluon-respondd \
 	gluon-autoupdater \
@@ -8,7 +8,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-core \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-hostname \
-	gluon-config-mode-mesh-vpn \
+	gluon-config-mode-tunneldigger \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-luci-admin \
@@ -16,16 +16,20 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-portconfig \
 	gluon-luci-private-wifi \
 	gluon-luci-wifi-config \
+	gluon-mesh-batman-adv-15 \
+	gluon-mesh-vpn-tunneldigger \
 	gluon-next-node \
-	gluon-mesh-vpn-fastd \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
 	haveged \
+	iptables \
+	gluon-tunneldigger-watchdog \
+	gluon-migrate-vpn \
 	gluon-aptimeclock \
 	gluon-nightboot \
+	gluon-txpowerfix \
 	gluon-vpnlimittimeclock \
-	iptables \
 	iwinfo
 
 # basic support for USB stack
@@ -169,7 +173,7 @@ GLUON_TLWDR4900_SITE_PACKAGES := $(USB_PACKAGES_BASIC) $(TOOLS_PACKAGES) $(USB_P
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.6-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.10-d03-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
