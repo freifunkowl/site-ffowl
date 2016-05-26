@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2016.1.4"
+RELEASE="v2016.1.5"
 SITES1=(`ls $DIR/sites-d01`)
 SITES2=(`ls $DIR/sites-d02`)
 SITES3=(`ls $DIR/sites-d03`)
