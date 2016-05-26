@@ -76,6 +76,7 @@
 
   tunneldigger_mesh_vpn = {
 	mtu = 1364,
+	enabled = true,
 	brokers = {
 		'gw01.freifunk-lippe.de:20002',	
 		'gw02.freifunk-lippe.de:20002',
