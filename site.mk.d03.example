@@ -25,10 +25,8 @@ GLUON_SITE_PACKAGES := \
 	haveged \
 	iptables \
 	gluon-tunneldigger-watchdog \
-	gluon-migrate-vpn \
 	gluon-aptimeclock \
 	gluon-nightboot \
-	gluon-txpowerfix \
 	gluon-vpnlimittimeclock \
 	iwinfo
 
@@ -39,7 +37,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.11-d03-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.12-d03-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE

@@ -25,10 +25,8 @@ GLUON_SITE_PACKAGES := \
 	haveged \
 	iptables \
 	gluon-tunneldigger-watchdog \
-	gluon-migrate-vpn \
 	gluon-aptimeclock \
 	gluon-nightboot \
-	gluon-txpowerfix \
 	gluon-vpnlimittimeclock \
 	iwinfo
 
