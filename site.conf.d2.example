@@ -7,10 +7,10 @@
 -- community specific changes to it!
 {
   -- Used for generated hostnames, e.g. freifunk-abcdef123456. (optional)
-  hostname_prefix = 'fflip-d02-lip-',
+  hostname_prefix = 'fflip-d2-lip-',
 
   -- Name of the community.
-  site_name = 'Freifunk Lippe Domaene 02',
+  site_name = 'Freifunk Lippe Domaene 2',
 
   -- Shorthand of the community.
   site_code = 'fflip',
