@@ -1,7 +1,7 @@
 #!/bin/bash
 ###############################################################################
 # Autor: Tronde (tronde(at)my-it-brain(dot)de) Datum: 2015-11-11
-# Modified by: Collimas 2016-05-15
+# Modified by: Collimas 2016-06-04
 # Lizenz: GPLv3
 #
 # Beschreibung:
@@ -22,120 +22,120 @@ SSIDEX=(extertal Freifunk lippe augustdorf detmold hornbadmeinberg lage kalletal
 
 # Funktionen ##################################################################
 # Erzeuge Configs fuer Stable-Branches
-create_stable_configs_d01(){
-  mkdir -p sites-d01
+create_stable_configs_d1(){
+  mkdir -p sites-d1
   typeset -i i=0
     for SITE in "${SITES1[@]}"
       do
-        mkdir -p sites-d01/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d01.example | sed "/ssid/s/\<lippe\>/${SSID1[i]}/g" > sites-d01/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d01.example > sites-d01/$SITE/site.mk
+        mkdir -p sites-d1/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d1.example | sed "/ssid/s/\<lippe\>/${SSID1[i]}/g" > sites-d1/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d1.example > sites-d1/$SITE/site.mk
         i=$i+1
     done
 }
-create_stable_configs_d02(){
-  mkdir -p sites-d02
+create_stable_configs_d2(){
+  mkdir -p sites-d2
   typeset -i i=0
     for SITE in "${SITES2[@]}"
       do
-        mkdir -p sites-d02/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d02.example | sed "/ssid/s/\<lippe\>/${SSID2[i]}/g" > sites-d02/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d02.example > sites-d02/$SITE/site.mk
+        mkdir -p sites-d2/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d2.example | sed "/ssid/s/\<lippe\>/${SSID2[i]}/g" > sites-d2/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d2.example > sites-d2/$SITE/site.mk
         i=$i+1
     done
 }
-create_stable_configs_d03(){
-  mkdir -p sites-d03
+create_stable_configs_d3(){
+  mkdir -p sites-d3
   typeset -i i=0
     for SITE in "${SITES3[@]}"
       do
-        mkdir -p sites-d03/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d03.example | sed "/ssid/s/\<lippe\>/${SSID3[i]}/g" > sites-d03/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d03.example > sites-d03/$SITE/site.mk
+        mkdir -p sites-d3/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d3.example | sed "/ssid/s/\<lippe\>/${SSID3[i]}/g" > sites-d3/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d3.example > sites-d3/$SITE/site.mk
         i=$i+1
     done
 }
-create_stable_configs_d04(){
-  mkdir -p sites-d04
+create_stable_configs_d4(){
+  mkdir -p sites-d4
   typeset -i i=0
     for SITE in "${SITES4[@]}"
       do
-        mkdir -p sites-d04/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d04.example | sed "/ssid/s/\<lippe\>/${SSID4[i]}/g" > sites-d04/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d04.example > sites-d04/$SITE/site.mk
+        mkdir -p sites-d4/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d4.example | sed "/ssid/s/\<lippe\>/${SSID4[i]}/g" > sites-d4/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d4.example > sites-d4/$SITE/site.mk
         i=$i+1
     done
 }
 
 # Sonderfall SSID Freifunk - Stable
 create_stable_ssid_freifunk(){
-  mv sites-d01/ff/site.conf sites-d01/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d01/ff/site-tmp.conf > sites-d01/ff/site.conf
-  rm -f sites-d01/ff/site-tmp.conf
+  mv sites-d1/ff/site.conf sites-d1/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
+  rm -f sites-d1/ff/site-tmp.conf
 }
 
 # Erzeuge Configs fuer Experimental-Branch
-create_experimental_configs_d01(){
-  mkdir -p sites-d01-experimental
+create_experimental_configs_d1(){
+  mkdir -p sites-d1-experimental
   typeset -i i=0
     for SITE in "${SITES1[@]}"
       do
-        mkdir -p sites-d01-experimental/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d01.experimental.example | sed "/ssid/s/\<lippe\>/${SSID1[i]}/g" > sites-d01-experimental/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d01.experimental.example > sites-d01-experimental/$SITE/site.mk
+        mkdir -p sites-d1-experimental/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d1.experimental.example | sed "/ssid/s/\<lippe\>/${SSID1[i]}/g" > sites-d1-experimental/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d1.experimental.example > sites-d1-experimental/$SITE/site.mk
         i=$i+1
     done
 }
-create_experimental_configs_d02(){
-  mkdir -p sites-d02-experimental
+create_experimental_configs_d2(){
+  mkdir -p sites-d2-experimental
   typeset -i i=0
     for SITE in "${SITES2[@]}"
       do
-        mkdir -p sites-d02-experimental/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d02.experimental.example | sed "/ssid/s/\<lippe\>/${SSID2[i]}/g" > sites-d02-experimental/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d02.experimental.example > sites-d02-experimental/$SITE/site.mk
+        mkdir -p sites-d2-experimental/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d2.experimental.example | sed "/ssid/s/\<lippe\>/${SSID2[i]}/g" > sites-d2-experimental/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d2.experimental.example > sites-d2-experimental/$SITE/site.mk
         i=$i+1
     done
 }
-create_experimental_configs_d03(){
-  mkdir -p sites-d03-experimental
+create_experimental_configs_d3(){
+  mkdir -p sites-d3-experimental
   typeset -i i=0
     for SITE in "${SITES3[@]}"
       do
-        mkdir -p sites-d03-experimental/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d03.experimental.example | sed "/ssid/s/\<lippe\>/${SSID3[i]}/g" > sites-d03-experimental/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d03.experimental.example > sites-d03-experimental/$SITE/site.mk
+        mkdir -p sites-d3-experimental/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d3.experimental.example | sed "/ssid/s/\<lippe\>/${SSID3[i]}/g" > sites-d3-experimental/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d3.experimental.example > sites-d3-experimental/$SITE/site.mk
         i=$i+1
     done
 }
-create_experimental_configs_d04(){
-  mkdir -p sites-d04-experimental
+create_experimental_configs_d4(){
+  mkdir -p sites-d4-experimental
   typeset -i i=0
     for SITE in "${SITES4[@]}"
       do
-        mkdir -p sites-d04-experimental/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.d04.experimental.example | sed "/ssid/s/\<lippe\>/${SSID4[i]}/g" > sites-d04-experimental/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.d04.experimental.example > sites-d04-experimental/$SITE/site.mk
+        mkdir -p sites-d4-experimental/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d4.experimental.example | sed "/ssid/s/\<lippe\>/${SSID4[i]}/g" > sites-d4-experimental/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d4.experimental.example > sites-d4-experimental/$SITE/site.mk
         i=$i+1
     done
 }
 
 # Sonderfall SSID Freifunk - Experimental
 create_experimental_ssid_freifunk(){
-  mv sites-d01-experimental/ff/site.conf sites-d01-experimental/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d01-experimental/ff/site-tmp.conf > sites-d01-experimental/ff/site.conf
-  rm -f sites-d01-experimental/ff/site-tmp.conf
+  mv sites-d1-experimental/ff/site.conf sites-d1-experimental/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
+  rm -f sites-d1-experimental/ff/site-tmp.conf
 }
 
 # Hauptprogramm ###############################################################
-create_stable_configs_d01
+create_stable_configs_d1
 create_stable_ssid_freifunk
-create_stable_configs_d02
-create_stable_configs_d03
-create_stable_configs_d04
-create_experimental_configs_d01
+create_stable_configs_d2
+create_stable_configs_d3
+create_stable_configs_d4
+create_experimental_configs_d1
 create_experimental_ssid_freifunk
-create_experimental_configs_d02
-create_experimental_configs_d03
-create_experimental_configs_d04
+create_experimental_configs_d2
+create_experimental_configs_d3
+create_experimental_configs_d4
 exit
