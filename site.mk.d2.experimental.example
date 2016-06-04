@@ -171,7 +171,7 @@ GLUON_TLWDR4900_SITE_PACKAGES := $(USB_PACKAGES_BASIC) $(TOOLS_PACKAGES) $(USB_P
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.12-d02-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.13-d2-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
