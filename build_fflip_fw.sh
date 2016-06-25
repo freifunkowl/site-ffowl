@@ -38,7 +38,9 @@ build_stable_branch_d1(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
+      make manifest GLUON_BRANCH=beta
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
+      ./contrib/sign.sh $SECRET output/images/sysupgrade/beta.manifest
       mkdir -p output/images/d1/$SITE
       mv -f output/images/factory output/images/d1/$SITE/
       mv -f output/images/sysupgrade output/images/d1/$SITE/
@@ -250,7 +252,7 @@ if [ -d "$DIR/gluon" ]
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
-    git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
+    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
     mkdir -p $DIR/gluon/site
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/
     cd $DIR/gluon

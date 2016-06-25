@@ -17,6 +17,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-private-wifi \
 	gluon-luci-wifi-config \
 	gluon-mesh-batman-adv-15 \
+	gluon-migrate-vpn \
 	gluon-mesh-vpn-tunneldigger \
 	gluon-next-node \
 	gluon-radvd \
@@ -28,6 +29,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-aptimeclock \
 	gluon-nightboot \
 	gluon-vpnlimittimeclock \
+	gluon-treatment \
 	iwinfo
 
 
@@ -54,4 +56,4 @@ GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_PRIORITY ?= 0
 
 # Languages to include
-GLUON_LANGS ?= de en fr
+GLUON_LANGS ?= de en
