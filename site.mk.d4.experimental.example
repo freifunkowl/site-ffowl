@@ -30,6 +30,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-nightboot \
 	gluon-vpnlimittimeclock \
 	gluon-treatment \
+	gluon-ssid-changer \
 	iwinfo
 
 # basic support for USB stack
