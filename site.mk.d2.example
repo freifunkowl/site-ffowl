@@ -17,6 +17,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-private-wifi \
 	gluon-luci-wifi-config \
 	gluon-mesh-batman-adv-15 \
+	gluon-migrate-vpn \
 	gluon-mesh-vpn-tunneldigger \
 	gluon-next-node \
 	gluon-radvd \
@@ -28,6 +29,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-aptimeclock \
 	gluon-nightboot \
 	gluon-vpnlimittimeclock \
+	gluon-treatment \
+	gluon-ssid-changer \
 	iwinfo
 
 
@@ -37,7 +40,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.12-d03-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.13-d2-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
@@ -54,4 +57,4 @@ GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_PRIORITY ?= 0
 
 # Languages to include
-GLUON_LANGS ?= de en fr
+GLUON_LANGS ?= de en
