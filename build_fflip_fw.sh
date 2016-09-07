@@ -257,6 +257,8 @@ if [ -d "$DIR/gluon" ]
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/
     cd $DIR/gluon
     make update
+    git pull
+    git submodule update --remote gluon
 fi
 
 cp $DIR/sign.sh $DIR/gluon/contrib/
