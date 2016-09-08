@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2016.1.5"
+RELEASE="v2016.1.6"
 SITES1=(`ls $DIR/sites-d1`)
 SITES2=(`ls $DIR/sites-d2`)
 SITES3=(`ls $DIR/sites-d3`)
@@ -38,9 +38,7 @@ build_stable_branch_d1(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
-      make manifest GLUON_BRANCH=beta
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
-      ./contrib/sign.sh $SECRET output/images/sysupgrade/beta.manifest
       mkdir -p output/images/d1/$SITE
       mv -f output/images/factory output/images/d1/$SITE/
       mv -f output/images/sysupgrade output/images/d1/$SITE/
@@ -252,11 +250,15 @@ if [ -d "$DIR/gluon" ]
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
-    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
+    git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
+    git remote add gluon https://github.com/freifunk-gluon/gluon.git
     mkdir -p $DIR/gluon/site
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/
     cd $DIR/gluon
     make update
+    git pull
+    git submodule update --remote gluon
+#read -p "Press enter to continue"
 fi
 
 cp $DIR/sign.sh $DIR/gluon/contrib/
@@ -272,13 +274,13 @@ create_logs_stable_d4
 
 # This creates images for the Experimental branch
 # Uncomment if you want to build Experimental images
-#build_experimental_branch_d1
-#create_logs_experimental_d1
-#build_experimental_branch_d2
-#create_logs_experimental_d2
-#build_experimental_branch_d3
-#create_logs_experimental_d3
-#build_experimental_branch_d4
-#create_logs_experimental_d4
+build_experimental_branch_d1
+create_logs_experimental_d1
+build_experimental_branch_d2
+create_logs_experimental_d2
+build_experimental_branch_d3
+create_logs_experimental_d3
+build_experimental_branch_d4
+create_logs_experimental_d4
 
 exit
