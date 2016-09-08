@@ -31,7 +31,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-vpnlimittimeclock \
 	gluon-treatment \
 	gluon-ssid-changer \
-	iwinfo
+	gluon-banner \
 
 # basic support for USB stack
 USB_PACKAGES_BASIC := \
@@ -174,7 +174,7 @@ GLUON_TLWDR4900_SITE_PACKAGES := $(USB_PACKAGES_BASIC) $(TOOLS_PACKAGES) $(USB_P
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.13-d3-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.14-d3-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
@@ -192,3 +192,6 @@ GLUON_PRIORITY ?= 0
 
 # Languages to include
 GLUON_LANGS ?= de en
+
+# Set Gluon region code for Archer
+GLUON_REGION := eu
