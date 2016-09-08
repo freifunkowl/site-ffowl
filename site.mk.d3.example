@@ -31,8 +31,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-vpnlimittimeclock \
 	gluon-treatment \
 	gluon-ssid-changer \
+	gluon-banner \
 	iwinfo
-
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
@@ -40,7 +40,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.13-d3-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.14-d3-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
@@ -58,3 +58,8 @@ GLUON_PRIORITY ?= 0
 
 # Languages to include
 GLUON_LANGS ?= de en
+
+# Set Gluon region code for Archer
+GLUON_REGION := eu
+
+
