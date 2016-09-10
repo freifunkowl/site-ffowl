@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Build script for firmware compiling Freifunk Lippe
 #
