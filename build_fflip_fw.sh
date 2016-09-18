@@ -236,6 +236,8 @@ create_logs_experimental_d4(){
   rm -rf $DIR/gluon/output/images-experimental/d4/logs
 }
 
+# Main #######################################################################
+
 # If gluon directory exists update to latest master and push this into actual repo
 if [ -d "$DIR/gluon" ]
   then
@@ -246,19 +248,15 @@ if [ -d "$DIR/gluon" ]
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/
     make update
     git pull
-    git submodule update --remote gluon
+    git submodule update
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
-    git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
-    git remote add gluon https://github.com/freifunk-gluon/gluon.git
+    git clone https://github.com/freifunk-gluon/gluon.git gluon
     mkdir -p $DIR/gluon/site
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/
     cd $DIR/gluon
     make update
-    git pull
-    git submodule update --remote gluon
-#read -p "Press enter to continue"
 fi
 
 cp $DIR/sign.sh $DIR/gluon/contrib/
