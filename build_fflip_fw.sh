@@ -263,22 +263,22 @@ cp $DIR/sign.sh $DIR/gluon/contrib/
 cp $DIR/modules $DIR/gluon/site/
 build_stable_branch_d1
 create_logs_stable_d1
-build_stable_branch_d2
-create_logs_stable_d2
-build_stable_branch_d3
-create_logs_stable_d3
-build_stable_branch_d4
-create_logs_stable_d4
+#build_stable_branch_d2
+#create_logs_stable_d2
+#build_stable_branch_d3
+#create_logs_stable_d3
+#build_stable_branch_d4
+#create_logs_stable_d4
 
 # This creates images for the Experimental branch
 # Uncomment if you want to build Experimental images
-build_experimental_branch_d1
-create_logs_experimental_d1
-build_experimental_branch_d2
-create_logs_experimental_d2
-build_experimental_branch_d3
-create_logs_experimental_d3
-build_experimental_branch_d4
-create_logs_experimental_d4
+#build_experimental_branch_d1
+#create_logs_experimental_d1
+#build_experimental_branch_d2
+#create_logs_experimental_d2
+#build_experimental_branch_d3
+#create_logs_experimental_d3
+#build_experimental_branch_d4
+#create_logs_experimental_d4
 
 exit
