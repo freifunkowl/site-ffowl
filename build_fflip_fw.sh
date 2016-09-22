@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2016.1.6"
+RELEASE="v2016.2"
 SITES1=(`ls $DIR/sites-d1`)
 SITES2=(`ls $DIR/sites-d2`)
 SITES3=(`ls $DIR/sites-d3`)
@@ -250,7 +250,7 @@ if [ -d "$DIR/gluon" ]
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
-    git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
+    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
     git remote add gluon https://github.com/freifunk-gluon/gluon.git
     mkdir -p $DIR/gluon/site
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/

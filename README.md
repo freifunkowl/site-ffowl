@@ -3,10 +3,11 @@ Site-Konfigurationsdateien für Freifunk-Lippe
 
 Die Freifunk-Lippe-Firmware basiert auf den folgenden Gluon Versionen:
 
-* 0.8.14 -> Gluon 2016.1.6
+* 0.8.15 -> Gluon 2016.2
 
-- Bugfix release
-- Support for additional devices
-- Implementation of package Freifunk Lippe specific banner
+* New hardware support (we finally removed the BROKEN flag from the
+ath10k devices!)
+* Bugfixes (improved WLAN stability!)
+* Various new features
 
-http://gluon.readthedocs.io/en/v2016.1.6/releases/v2016.1.6.html
+http://gluon.readthedocs.io/en/v2016.2/releases/v2016.2.html
