@@ -19,7 +19,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-mesh-batman-adv-15 \
 	gluon-migrate-vpn \
 	gluon-mesh-vpn-tunneldigger \
-	gluon-next-node \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
@@ -175,7 +174,7 @@ GLUON_TLWDR4900_SITE_PACKAGES := $(USB_PACKAGES_BASIC) $(TOOLS_PACKAGES) $(USB_P
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.15-d1-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.17-d1-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
@@ -199,3 +198,4 @@ GLUON_REGION := eu
 
 # Activate image creation for ATH10K devices
 GLUON_ATH10K_MESH := 11s
+

@@ -70,7 +70,7 @@ create_stable_configs_d4(){
 # Sonderfall SSID Freifunk - Stable
 create_stable_ssid_freifunk(){
   mv sites-d1/ff/site.conf sites-d1/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
+  sed "s/\<Freifunk.freifunk.net\>/freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
   rm -f sites-d1/ff/site-tmp.conf
 }
 
@@ -123,7 +123,7 @@ create_experimental_configs_d4(){
 # Sonderfall SSID Freifunk - Experimental
 create_experimental_ssid_freifunk(){
   mv sites-d1-experimental/ff/site.conf sites-d1-experimental/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
+  sed "s/\<Freifunk.freifunk.net\>/freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
   rm -f sites-d1-experimental/ff/site-tmp.conf
 }
 

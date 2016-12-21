@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Build script for firmware compiling Freifunk Lippe
 #
@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2016.2"
+RELEASE="v2016.2.2"
 SITES1=(`ls $DIR/sites-d1`)
 SITES2=(`ls $DIR/sites-d2`)
 SITES3=(`ls $DIR/sites-d3`)
