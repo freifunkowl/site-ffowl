@@ -63,17 +63,6 @@
     },
  },
 
-  -- The next node feature allows clients to always reach the node it is
-  -- connected to using a known IP address.
-  next_node = {
-    -- anycast IPs of all nodes
-    ip4 = '10.15.24.1',
-    ip6 = '2a03:2260:2004:400::1',
-
-    -- anycast MAC of all nodes
-    mac = 'de:42:ab:cd:ef:45',
-  },
-
   tunneldigger_mesh_vpn = {
 	mtu = 1364,
 	enabled = true,

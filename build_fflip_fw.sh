@@ -22,7 +22,7 @@ SITESEX2=(`ls $DIR/sites-d2-experimental`)
 SITESEX3=(`ls $DIR/sites-d3-experimental`)
 SITESEX4=(`ls $DIR/sites-d4-experimental`)
 #
-CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=8 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
@@ -34,6 +34,7 @@ build_stable_branch_d1(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -56,6 +57,7 @@ build_stable_branch_d2(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -78,9 +80,10 @@ build_stable_branch_d3(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d3/$SITE
@@ -100,6 +103,7 @@ build_stable_branch_d4(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -263,14 +267,14 @@ fi
 
 cp $DIR/sign.sh $DIR/gluon/contrib/
 cp $DIR/modules $DIR/gluon/site/
-#build_stable_branch_d1
-#create_logs_stable_d1
-#build_stable_branch_d2
-#create_logs_stable_d2
+build_stable_branch_d1
+create_logs_stable_d1
+build_stable_branch_d2
+create_logs_stable_d2
 build_stable_branch_d3
 create_logs_stable_d3
-#build_stable_branch_d4
-#create_logs_stable_d4
+build_stable_branch_d4
+create_logs_stable_d4
 
 # This creates images for the Experimental branch
 # Uncomment if you want to build Experimental images
