@@ -17,8 +17,9 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-portconfig \
 	gluon-luci-private-wifi \
 	gluon-luci-wifi-config \
-	gluon-mesh-batman-adv-15 \
 	gluon-migrate-vpn \
+	gluon-mesh-vpn-tunneldigger \
+	gluon-mesh-vpn-fastd \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
@@ -31,7 +32,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-treatment \
 	gluon-ssid-changer \
 	gluon-banner \
-	iwinfo
 
 # basic support for USB stack
 USB_PACKAGES_BASIC := \

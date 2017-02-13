@@ -19,6 +19,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-wifi-config \
 	gluon-migrate-vpn \
 	gluon-mesh-vpn-tunneldigger \
+	gluon-mesh-vpn-fastd \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \

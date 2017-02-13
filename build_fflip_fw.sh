@@ -22,7 +22,7 @@ SITESEX2=(`ls $DIR/sites-d2-experimental`)
 SITESEX3=(`ls $DIR/sites-d3-experimental`)
 SITESEX4=(`ls $DIR/sites-d4-experimental`)
 #
-CORES=8 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
