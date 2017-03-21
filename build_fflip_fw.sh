@@ -5,14 +5,14 @@
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
 # Modified by: Tronde at 2016-04-21
-# Modified by: Collimas at 2016-06-04
+# Modified by: Collimas at 2017-03-11
 
 # Voraussetzungen #############################################################
 DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2016.2.3"
+RELEASE="v2016.2.4"
 SITES1=(`ls $DIR/sites-d1`)
 SITES2=(`ls $DIR/sites-d2`)
 SITES3=(`ls $DIR/sites-d3`)
@@ -22,7 +22,7 @@ SITESEX2=(`ls $DIR/sites-d2-experimental`)
 SITESEX3=(`ls $DIR/sites-d3-experimental`)
 SITESEX4=(`ls $DIR/sites-d4-experimental`)
 #
-CORES=3 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=16 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 

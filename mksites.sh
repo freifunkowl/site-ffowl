@@ -1,7 +1,7 @@
 #!/bin/bash
 ###############################################################################
 # Autor: Tronde (tronde(at)my-it-brain(dot)de) Datum: 2015-11-11
-# Modified by: Collimas 2016-06-04
+# Modified by: Collimas 2017-03-11
 # Lizenz: GPLv3
 #
 # Beschreibung:
@@ -10,15 +10,15 @@
 ###############################################################################
 
 # Variablen ###################################################################
-SITES1=(ex ff lip)
-SITES2=(ad dt hb la)
-SITES3=(kt le)
+SITES1=(ex ff lip bb st lg)
+SITES2=(ad dt hb la sg)
+SITES3=(kt le bt sr dr)
 SITES4=(bs lh oe sc)
-SSID1=(extertal Freifunk lippe)
-SSID2=(augustdorf detmold hornbadmeinberg lage)
-SSID3=(kalletal lemgo)
+SSID1=(extertal Freifunk lippe blomberg steinheim luegde)
+SSID2=(augustdorf detmold hornbadmeinberg lage schlangen)
+SSID3=(kalletal lemgo barntrup schiederschwalenberg doerentrup)
 SSID4=(badsalzuflen leopoldshoehe oerlinghausen schoetmar)
-SSIDEX=(extertal Freifunk lippe augustdorf detmold hornbadmeinberg lage kalletal lemgo badsalzuflen leopoldshoehe oerlinghausen schoetmar)
+SSIDEX=(extertal Freifunk lippe blomberg steinheim luegde augustdorf detmold hornbadmeinberg lage schlangen kalletal lemgo barntrup schiederschwalenberg doerentrup badsalzuflen leopoldshoehe oerlinghausen schoetmar)
 
 # Funktionen ##################################################################
 # Erzeuge Configs fuer Stable-Branches

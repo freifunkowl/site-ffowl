@@ -14,4 +14,4 @@ msgid "gluon-config-mode:altitude-label"
 msgstr ""
 
 msgid "gluon-config-mode:altitude-help"
-msgstr ""
+msgstr 

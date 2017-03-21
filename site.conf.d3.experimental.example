@@ -78,8 +78,6 @@
 	mtu = 1364,
 	enabled = true,
 	brokers = {
-		'gw01.freifunk-lippe.de:20003',	
-		'gw02.freifunk-lippe.de:20003',
 		'gw03.freifunk-lippe.de:20003',
 		'gw04.freifunk-lippe.de:20003',
                 },
