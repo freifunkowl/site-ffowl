@@ -16,7 +16,7 @@
   site_code = 'fflip',
 
   -- Prefixes used within the mesh. Both are required.
-  prefix4 = '10.15.24.0/21',
+  prefix4 = '10.15.40.0/21',
   prefix6 = '2a03:2260:2004:400::/64',
 
   -- Timezone of your community.
@@ -67,7 +67,7 @@
   -- connected to using a known IP address.
   next_node = {
     -- anycast IPs of all nodes
-    ip4 = '10.15.24.1',
+    ip4 = '10.15.40.1',
     ip6 = '2a03:2260:2004:400::1',
 
     -- anycast MAC of all nodes
@@ -78,8 +78,6 @@
 	mtu = 1364,
 	enabled = true,
 	brokers = {
-		'gw01.freifunk-lippe.de:20004',	
-		'gw02.freifunk-lippe.de:20004',	
 		'gw03.freifunk-lippe.de:20004',
 		'gw04.freifunk-lippe.de:20004',	
                 },

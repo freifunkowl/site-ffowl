@@ -80,8 +80,6 @@
 	brokers = {
 		'gw01.freifunk-lippe.de:20002',	
 		'gw02.freifunk-lippe.de:20002',
-		'gw03.freifunk-lippe.de:20002',
-		'gw04.freifunk-lippe.de:20002',
                 },
 				
 		bandwidth_limit = {

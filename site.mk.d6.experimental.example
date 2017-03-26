@@ -31,7 +31,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-treatment \
 	gluon-ssid-changer \
 	gluon-banner \
-	iwinfo
 
 # basic support for USB stack
 USB_PACKAGES_BASIC := \
@@ -174,7 +173,7 @@ GLUON_TLWDR4900_SITE_PACKAGES := $(USB_PACKAGES_BASIC) $(TOOLS_PACKAGES) $(USB_P
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.19-d2-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.19-d6-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
@@ -198,4 +197,3 @@ GLUON_REGION := eu
 
 # Activate image creation for ATH10K devices
 GLUON_ATH10K_MESH := 11s
-
