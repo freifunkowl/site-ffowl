@@ -12,6 +12,10 @@ sites-d3/
 sites-d3-experimental/
 sites-d4/
 sites-d4-experimental/
+sites-d5/
+sites-d5-experimental/
+sites-d6/
+sites-d6-experimental/
 secret*
 copymanifest.sh
 dowork.sh
