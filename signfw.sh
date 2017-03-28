@@ -1,10 +1,8 @@
 #! /bin/bash
 
-# Build script for firmware compiling Freifunk Lippe
+# Sign script for firmware signing Freifunk Lippe
 #
 # Created by: Collimas
-# Modified by: Tronde at 2015-10-31
-# Modified by: Tronde at 2016-04-21
 # Modified by: Collimas at 2017-03-28
 
 # Voraussetzungen #############################################################
