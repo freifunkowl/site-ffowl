@@ -74,20 +74,25 @@
     mac = 'de:42:ab:cd:ef:42',
   },
 
-  tunneldigger_mesh_vpn = {
-	mtu = 1364,
-	enabled = true,
+  mesh_vpn = {
+     
+     enabled = true,
+     mtu = 1364,
+
+  tunneldigger = {
+	
 	brokers = {
 		'gw01.freifunk-lippe.de:20001',	
 		'gw02.freifunk-lippe.de:20001',
                 },
 				
-		bandwidth_limit = {
+  bandwidth_limit = {
 		    enabled = false,
 		    ingress = 25000,
 		    egress = 5000,
 		},
 	},
+   },
 
   autoupdater = {
     branch = 'stable',

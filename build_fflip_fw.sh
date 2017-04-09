@@ -38,7 +38,7 @@ build_stable_branch_d1(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -46,7 +46,11 @@ build_stable_branch_d1(){
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d1/$SITE
       mv -f output/images/factory output/images/d1/$SITE/
+      md5sum output/images/d1/$SITE/factory/* > output/images/d1/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d1/$SITE/factory/pruefsummen.md5 
       mv -f output/images/sysupgrade output/images/d1/$SITE/
+      md5sum output/images/d1/$SITE/sysupgrade/* > output/images/d1/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d1/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images/d1/logs
       mv $DIR/gluon/make*.log output/images/d1/logs
@@ -61,7 +65,7 @@ build_stable_branch_d2(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -69,7 +73,11 @@ build_stable_branch_d2(){
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d2/$SITE
       mv -f output/images/factory output/images/d2/$SITE/
+      md5sum output/images/d2/$SITE/factory/* > output/images/d2/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d2/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images/d2/$SITE/
+      md5sum output/images/d2/$SITE/sysupgrade/* > output/images/d2/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d2/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images/d2/logs
       mv $DIR/gluon/make*.log output/images/d2/logs
@@ -84,7 +92,7 @@ build_stable_branch_d3(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -92,7 +100,11 @@ build_stable_branch_d3(){
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d3/$SITE
       mv -f output/images/factory output/images/d3/$SITE/
+      md5sum output/images/d3/$SITE/factory/* > output/images/d3/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d3/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images/d3/$SITE/
+      md5sum output/images/d3/$SITE/sysupgrade/* > output/images/d3/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d3/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images/d3/logs
       mv $DIR/gluon/make*.log output/images/d3/logs
@@ -107,7 +119,7 @@ build_stable_branch_d4(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -115,7 +127,11 @@ build_stable_branch_d4(){
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d4/$SITE
       mv -f output/images/factory output/images/d4/$SITE/
+      md5sum output/images/d4/$SITE/factory/* > output/images/d4/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d4/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images/d4/$SITE/
+      md5sum output/images/d4/$SITE/sysupgrade/* > output/images/d4/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d4/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images/d4/logs
       mv $DIR/gluon/make*.log output/images/d4/logs
@@ -130,7 +146,7 @@ build_stable_branch_d5(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -138,7 +154,11 @@ build_stable_branch_d5(){
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d5/$SITE
       mv -f output/images/factory output/images/d5/$SITE/
+      md5sum output/images/d5/$SITE/factory/* > output/images/d5/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d5/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images/d5/$SITE/
+      md5sum output/images/d5/$SITE/sysupgrade/* > output/images/d5/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d5/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images/d5/logs
       mv $DIR/gluon/make*.log output/images/d5/logs
@@ -153,7 +173,7 @@ build_stable_branch_d6(){
       cp -r $DIR/i18n/ $DIR/gluon/site/
       cd $DIR/gluon/
       # This creates images for the stable branch
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -161,7 +181,11 @@ build_stable_branch_d6(){
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d6/$SITE
       mv -f output/images/factory output/images/d6/$SITE/
+      md5sum output/images/d6/$SITE/factory/* > output/images/d6/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d6/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images/d6/$SITE/
+      md5sum output/images/d6/$SITE/sysupgrade/* > output/images/d6/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images/d6/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images/d6/logs
       mv $DIR/gluon/make*.log output/images/d6/logs
@@ -182,7 +206,11 @@ build_experimental_branch_d1(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d1/$SITE
       mv -f output/images/factory output/images-experimental/d1/$SITE/
+      md5sum output/images-experimental/d1/$SITE/factory/* > output/images-experimental/d1/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d1/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images-experimental/d1/$SITE/
+      md5sum output/images-experimental/d1/$SITE/sysupgrade/* > output/images-experimental/d1/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d1/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images-experimental/d1/logs
       mv $DIR/gluon/make*.log output/images-experimental/d1/logs
@@ -203,7 +231,11 @@ build_experimental_branch_d2(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d2/$SITE
       mv -f output/images/factory output/images-experimental/d2/$SITE/
+      md5sum output/images-experimental/d2/$SITE/factory/* > output/images-experimental/d2/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d2/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images-experimental/d2/$SITE/
+      md5sum output/images-experimental/d2/$SITE/sysupgrade/* > output/images-experimental/d2/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d2/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images-experimental/d2/logs
       mv $DIR/gluon/make*.log output/images-experimental/d2/logs
@@ -224,7 +256,11 @@ build_experimental_branch_d3(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d3/$SITE
       mv -f output/images/factory output/images-experimental/d3/$SITE/
+      md5sum output/images-experimental/d3/$SITE/factory/* > output/images-experimental/d3/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d3/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images-experimental/d3/$SITE/
+      md5sum output/images-experimental/d3/$SITE/sysupgrade/* > output/images-experimental/d3/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d3/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images-experimental/d3/logs
       mv $DIR/gluon/make*.log output/images-experimental/d3/logs
@@ -245,7 +281,11 @@ build_experimental_branch_d4(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d4/$SITE
       mv -f output/images/factory output/images-experimental/d4/$SITE/
+      md5sum output/images-experimental/d4/$SITE/factory/* > output/images-experimental/d4/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d4/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images-experimental/d4/$SITE/
+      md5sum output/images-experimental/d4/$SITE/sysupgrade/* > output/images-experimental/d4/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d4/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images-experimental/d4/logs
       mv $DIR/gluon/make*.log output/images-experimental/d4/logs
@@ -266,7 +306,11 @@ build_experimental_branch_d5(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d5/$SITE
       mv -f output/images/factory output/images-experimental/d5/$SITE/
+      md5sum output/images-experimental/d5/$SITE/factory/* > output/images-experimental/d5/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d5/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images-experimental/d5/$SITE/
+      md5sum output/images-experimental/d5/$SITE/sysupgrade/* > output/images-experimental/d5/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d5/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images-experimental/d5/logs
       mv $DIR/gluon/make*.log output/images-experimental/d5/logs
@@ -287,7 +331,11 @@ build_experimental_branch_d6(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d6/$SITE
       mv -f output/images/factory output/images-experimental/d6/$SITE/
+      md5sum output/images-experimental/d6/$SITE/factory/* > output/images-experimental/d6/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d6/$SITE/factory/pruefsummen.md5
       mv -f output/images/sysupgrade output/images-experimental/d6/$SITE/
+      md5sum output/images-experimental/d6/$SITE/sysupgrade/* > output/images-experimental/d6/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-experimental/d6/$SITE/sysupgrade/pruefsummen.md5
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images-experimental/d6/logs
       mv $DIR/gluon/make*.log output/images-experimental/d6/logs
@@ -364,7 +412,7 @@ if [ -d "$DIR/gluon" ]
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
-    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
+    git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
     git remote add gluon https://github.com/freifunk-gluon/gluon.git
     mkdir -p $DIR/gluon/site
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/
