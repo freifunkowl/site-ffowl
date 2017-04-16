@@ -101,7 +101,7 @@
       stable = {
         name = 'stable',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.freifunk-lippe.de/stable/d4/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d4/lip/upgrade'},
+        mirrors = {'http://update.freifunk-lippe.de/stable/d4/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d4/lip/upgrade', 'http://update3.freifunk-lippe.de/stable/d4/lip/upgrade'},
         good_signatures = 2,
         -- List of public keys of maintainers.
         pubkeys = {

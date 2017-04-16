@@ -10,19 +10,19 @@
 ###############################################################################
 
 # Variablen ###################################################################
-SITES1=(ff lip bb st lg sr)
-SITES2=(ad dt hb la sg)
-SITES3=(kt le bt ex dr)
-SITES4=(bs lh oe sc)
+SITES1=(ff lip)
+SITES2=(lip)
+SITES3=(lip)
+SITES4=(lip)
 SITES5=(rs)
 SITES6=(tt)
-SSID1=(Freifunk lippe blomberg steinheim luegde schiederschwalenberg)
-SSID2=(augustdorf detmold hornbadmeinberg lage schlangen)
-SSID3=(kalletal lemgo barntrup extertal doerentrup)
-SSID4=(badsalzuflen leopoldshoehe oerlinghausen schoetmar)
+SSID1=(Freifunk lippe)
+SSID2=(lippe)
+SSID3=(lippe)
+SSID4=(lippe)
 SSID5=(reserve)
 SSID6=(test)
-SSIDEX=(Freifunk lippe blomberg steinheim luegde schiederschwalenberg augustdorf detmold hornbadmeinberg lage schlangen kalletal lemgo barntrup extertal doerentrup badsalzuflen leopoldshoehe oerlinghausen schoetmar reserve test)
+SSIDEX=(Freifunk lippe reserve test)
 
 # Funktionen ##################################################################
 # Erzeuge Configs fuer Stable-Branches
@@ -96,7 +96,7 @@ create_stable_configs_d6(){
 # Sonderfall SSID Freifunk - Stable
 create_stable_ssid_freifunk(){
   mv sites-d1/ff/site.conf sites-d1/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
   rm -f sites-d1/ff/site-tmp.conf
 }
 
@@ -171,7 +171,7 @@ create_experimental_configs_d6(){
 # Sonderfall SSID Freifunk - Experimental
 create_experimental_ssid_freifunk(){
   mv sites-d1-experimental/ff/site.conf sites-d1-experimental/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
   rm -f sites-d1-experimental/ff/site-tmp.conf
 }
 
