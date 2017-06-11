@@ -5,7 +5,7 @@
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
 # Modified by: Tronde at 2016-04-21
-# Modified by: Collimas at 2017-03-24
+# Modified by: Collimas at 2017-06-11
 
 # Voraussetzungen #############################################################
 DIR=`pwd`
@@ -26,7 +26,7 @@ SITESEX4=(`ls $DIR/sites-d4-experimental`)
 SITESEX5=(`ls $DIR/sites-d5-experimental`)
 SITESEX6=(`ls $DIR/sites-d6-experimental`)
 #
-CORES=16 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=12 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 
@@ -41,6 +41,7 @@ build_stable_branch_d1(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
@@ -68,6 +69,7 @@ build_stable_branch_d2(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
@@ -95,6 +97,7 @@ build_stable_branch_d3(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
@@ -122,6 +125,7 @@ build_stable_branch_d4(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
@@ -149,6 +153,7 @@ build_stable_branch_d5(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
@@ -176,6 +181,7 @@ build_stable_branch_d6(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
@@ -204,6 +210,7 @@ build_experimental_branch_d1(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d1/$SITE
       mv -f output/images/factory output/images-experimental/d1/$SITE/
       md5sum output/images-experimental/d1/$SITE/factory/* > output/images-experimental/d1/$SITE/factory/pruefsummen.md5
@@ -229,6 +236,7 @@ build_experimental_branch_d2(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d2/$SITE
       mv -f output/images/factory output/images-experimental/d2/$SITE/
       md5sum output/images-experimental/d2/$SITE/factory/* > output/images-experimental/d2/$SITE/factory/pruefsummen.md5
@@ -254,6 +262,7 @@ build_experimental_branch_d3(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d3/$SITE
       mv -f output/images/factory output/images-experimental/d3/$SITE/
       md5sum output/images-experimental/d3/$SITE/factory/* > output/images-experimental/d3/$SITE/factory/pruefsummen.md5
@@ -279,6 +288,7 @@ build_experimental_branch_d4(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d4/$SITE
       mv -f output/images/factory output/images-experimental/d4/$SITE/
       md5sum output/images-experimental/d4/$SITE/factory/* > output/images-experimental/d4/$SITE/factory/pruefsummen.md5
@@ -304,6 +314,7 @@ build_experimental_branch_d5(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d5/$SITE
       mv -f output/images/factory output/images-experimental/d5/$SITE/
       md5sum output/images-experimental/d5/$SITE/factory/* > output/images-experimental/d5/$SITE/factory/pruefsummen.md5
@@ -329,6 +340,7 @@ build_experimental_branch_d6(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       mkdir -p output/images-experimental/d6/$SITE
       mv -f output/images/factory output/images-experimental/d6/$SITE/
       md5sum output/images-experimental/d6/$SITE/factory/* > output/images-experimental/d6/$SITE/factory/pruefsummen.md5
@@ -412,7 +424,7 @@ if [ -d "$DIR/gluon" ]
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
-    git clone https://github.com/freifunk-gluon/gluon.git gluon # -b $RELEASE
+    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
     git remote add gluon https://github.com/freifunk-gluon/gluon.git
     mkdir -p $DIR/gluon/site
     cp $DIR/sites-d1/ff/site.* $DIR/gluon/site/
