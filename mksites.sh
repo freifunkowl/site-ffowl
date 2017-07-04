@@ -10,19 +10,19 @@
 ###############################################################################
 
 # Variablen ###################################################################
-SITES1=(ff lip)
-SITES2=(ff lip)
-SITES3=(ff lip)
-SITES4=(ff lip)
+SITES1=(lip ff)
+SITES2=(lip ff)
+SITES3=(lip ff)
+SITES4=(lip ff)
 SITES5=(rs)
 SITES6=(tt)
-SSID1=(Freifunk lippe)
-SSID2=(Freifunk lippe)
-SSID3=(Freifunk lippe)
-SSID4=(Freifunk lippe)
+SSID1=(lippe Freifunk)
+SSID2=(lippe Freifunk)
+SSID3=(lippe Freifunk)
+SSID4=(lippe Freifunk)
 SSID5=(reserve)
 SSID6=(test)
-SSIDEX=(Freifunk lippe reserve test)
+SSIDEX=(lippe Freifunk reserve test)
 
 # Funktionen ##################################################################
 # Erzeuge Configs fuer Stable-Branches
@@ -93,11 +93,32 @@ create_stable_configs_d6(){
     done
 }
 
-# Sonderfall SSID Freifunk - Stable
-create_stable_ssid_freifunk(){
+# Sonderfall SSID Freifunk - Stable Domaene 1
+create_stable_ssid_freifunk_d1(){
   mv sites-d1/ff/site.conf sites-d1/ff/site-tmp.conf
   sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
   rm -f sites-d1/ff/site-tmp.conf
+}
+
+# Sonderfall SSID Freifunk - Stable Domaene 2
+create_stable_ssid_freifunk_d2(){
+  mv sites-d2/ff/site.conf sites-d2/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d2/ff/site-tmp.conf > sites-d2/ff/site.conf
+  rm -f sites-d2/ff/site-tmp.conf
+}
+
+# Sonderfall SSID Freifunk - Stable Domaene 3
+create_stable_ssid_freifunk_d3(){
+  mv sites-d3/ff/site.conf sites-d3/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d3/ff/site-tmp.conf > sites-d3/ff/site.conf
+  rm -f sites-d3/ff/site-tmp.conf
+}
+
+# Sonderfall SSID Freifunk - Stable Domaene 4
+create_stable_ssid_freifunk_d4(){
+  mv sites-d4/ff/site.conf sites-d4/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d4/ff/site-tmp.conf > sites-d4/ff/site.conf
+  rm -f sites-d4/ff/site-tmp.conf
 }
 
 # Erzeuge Configs fuer Experimental-Branch
@@ -168,26 +189,53 @@ create_experimental_configs_d6(){
     done
 }
 
-# Sonderfall SSID Freifunk - Experimental
-create_experimental_ssid_freifunk(){
+# Sonderfall SSID Freifunk - Experimental - Domaene 1
+create_experimental_ssid_freifunk_d1(){
   mv sites-d1-experimental/ff/site.conf sites-d1-experimental/ff/site-tmp.conf
   sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
   rm -f sites-d1-experimental/ff/site-tmp.conf
 }
 
+# Sonderfall SSID Freifunk - Experimental - Domaene 2
+create_experimental_ssid_freifunk_d2(){
+  mv sites-d2-experimental/ff/site.conf sites-d2-experimental/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d2-experimental/ff/site-tmp.conf > sites-d2-experimental/ff/site.conf
+  rm -f sites-d2-experimental/ff/site-tmp.conf
+}
+
+# Sonderfall SSID Freifunk - Experimental - Domaene 3
+create_experimental_ssid_freifunk_d3(){
+  mv sites-d3-experimental/ff/site.conf sites-d3-experimental/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d3-experimental/ff/site-tmp.conf > sites-d3-experimental/ff/site.conf
+  rm -f sites-d3-experimental/ff/site-tmp.conf
+}
+
+# Sonderfall SSID Freifunk - Experimental - Domaene 4
+create_experimental_ssid_freifunk_d4(){
+  mv sites-d4-experimental/ff/site.conf sites-d4-experimental/ff/site-tmp.conf
+  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d4-experimental/ff/site-tmp.conf > sites-d4-experimental/ff/site.conf
+  rm -f sites-d4-experimental/ff/site-tmp.conf
+}
+
 # Hauptprogramm ###############################################################
 create_stable_configs_d1
-create_stable_ssid_freifunk
+create_stable_ssid_freifunk_d1
 create_stable_configs_d2
+create_stable_ssid_freifunk_d2
 create_stable_configs_d3
+create_stable_ssid_freifunk_d3
 create_stable_configs_d4
+create_stable_ssid_freifunk_d4
 create_stable_configs_d5
 create_stable_configs_d6
 create_experimental_configs_d1
-create_experimental_ssid_freifunk
+create_experimental_ssid_freifunk_d1
 create_experimental_configs_d2
+create_experimental_ssid_freifunk_d2
 create_experimental_configs_d3
+create_experimental_ssid_freifunk_d3
 create_experimental_configs_d4
+create_experimental_ssid_freifunk_d4
 create_experimental_configs_d5
 create_experimental_configs_d6
 exit

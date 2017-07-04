@@ -15,6 +15,11 @@
   -- Shorthand of the community.
   site_code = 'fflip',
 
+  -- 32 bytes of random data, encoded in hexacimal
+  -- Must be the same of all nodes in one mesh domain
+  -- Can be generated using: echo $(hexdump -n 32 -e '1/1 "%02x"' </dev/urandom)
+  site_seed = 'e1537b3255d716554d132c8ae6d8c020aace5506ddf9ef733544e7bebd6a9866',
+
   -- Prefixes used within the mesh. Both are required.
   prefix4 = '10.15.40.0/21',
   prefix6 = '2a03:2260:2004:600::/64',
@@ -111,6 +116,21 @@
         },
         },
     },
+  },
+
+  ssid_changer = {
+    switch_timeframe = 1,   -- only once every timeframe (in minutes) the SSID will change to OFFLINE 
+                            -- set to 1440 to change once a day
+                            -- set to 1 minute to change every time the router gets offline
+    first = 5,              -- the first few minutes directly after reboot within which an Offline-SSID always may be activated
+    prefix = 'FF_OFFLINE_', -- use something short to leave space for the nodename (no '~' allowed!)
+    suffix = 'nodename',    -- generate the SSID with either 'nodename', 'mac' or to use only the prefix: 'none'
+  
+    tq_limit_enabled = 0,   -- if false, the offline SSID will only be set if there is no gateway reacheable
+                            -- upper and lower limit to turn the offline_ssid on and off
+                            -- in-between these two values the SSID will never be changed to prevent it from toggeling every minute.
+    tq_limit_max = '55',    -- upper limit, above that the online SSID will be used
+    tq_limit_min = '45'     -- lower limit, below that the offline SSID will be used
   },
 
 }

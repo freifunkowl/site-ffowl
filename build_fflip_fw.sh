@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2017.1"
+RELEASE="v2017.1.1"
 SITES1=(`ls $DIR/sites-d1`)
 SITES2=(`ls $DIR/sites-d2`)
 SITES3=(`ls $DIR/sites-d3`)
@@ -26,7 +26,7 @@ SITESEX4=(`ls $DIR/sites-d4-experimental`)
 SITESEX5=(`ls $DIR/sites-d5-experimental`)
 SITESEX6=(`ls $DIR/sites-d6-experimental`)
 #
-CORES=12 # Specifies the number of jobs (commands) to run simultaneously.
+CORES=8 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
 ###############################################################################
 

@@ -1,7 +1,7 @@
 GLUON_SITE_FEEDS='fflip ffrl'
 
 PACKAGES_FFLIP_REPO=https://github.com/FreifunkLippe/packages
-PACKAGES_FFLIP_COMMIT=f9c43563cc88bbf929bcd153c5cc219b5f44023d
+PACKAGES_FFLIP_COMMIT=fc1c1e943269551f2c2b83fee3a70fada817ee0f
 
 PACKAGES_FFRL_REPO=https://github.com/ffrl/ffrl-packages
 PACKAGES_FFRL_COMMIT=434f2181290b129bdfbb09ca16e1d9696c8327be
