@@ -1,7 +1,7 @@
 #!/bin/bash
 ###############################################################################
 # Autor: Tronde (tronde(at)my-it-brain(dot)de) Datum: 2015-11-11
-# Modified by: Collimas 2016-06-04
+# Modified by: Collimas 2017-03-11
 # Lizenz: GPLv3
 #
 # Beschreibung:
@@ -10,15 +10,19 @@
 ###############################################################################
 
 # Variablen ###################################################################
-SITES1=(ex ff lip)
-SITES2=(ad dt hb la)
-SITES3=(kt le)
+SITES1=(ff lip bb st lg sr)
+SITES2=(ad dt hb la sg)
+SITES3=(kt le bt ex dr)
 SITES4=(bs lh oe sc)
-SSID1=(extertal Freifunk lippe)
-SSID2=(augustdorf detmold hornbadmeinberg lage)
-SSID3=(kalletal lemgo)
+SITES5=(rs)
+SITES6=(tt)
+SSID1=(Freifunk lippe blomberg steinheim luegde schiederschwalenberg)
+SSID2=(augustdorf detmold hornbadmeinberg lage schlangen)
+SSID3=(kalletal lemgo barntrup extertal doerentrup)
 SSID4=(badsalzuflen leopoldshoehe oerlinghausen schoetmar)
-SSIDEX=(extertal Freifunk lippe augustdorf detmold hornbadmeinberg lage kalletal lemgo badsalzuflen leopoldshoehe oerlinghausen schoetmar)
+SSID5=(reserve)
+SSID6=(test)
+SSIDEX=(Freifunk lippe blomberg steinheim luegde schiederschwalenberg augustdorf detmold hornbadmeinberg lage schlangen kalletal lemgo barntrup extertal doerentrup badsalzuflen leopoldshoehe oerlinghausen schoetmar reserve test)
 
 # Funktionen ##################################################################
 # Erzeuge Configs fuer Stable-Branches
@@ -66,11 +70,33 @@ create_stable_configs_d4(){
         i=$i+1
     done
 }
+create_stable_configs_d5(){
+  mkdir -p sites-d5
+  typeset -i i=0
+    for SITE in "${SITES5[@]}"
+      do
+        mkdir -p sites-d5/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d5.example | sed "/ssid/s/\<lippe\>/${SSID5[i]}/g" > sites-d5/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d5.example > sites-d5/$SITE/site.mk
+        i=$i+1
+    done
+}
+create_stable_configs_d6(){
+  mkdir -p sites-d6
+  typeset -i i=0
+    for SITE in "${SITES6[@]}"
+      do
+        mkdir -p sites-d6/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d6.example | sed "/ssid/s/\<lippe\>/${SSID6[i]}/g" > sites-d6/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d6.example > sites-d6/$SITE/site.mk
+        i=$i+1
+    done
+}
 
 # Sonderfall SSID Freifunk - Stable
 create_stable_ssid_freifunk(){
   mv sites-d1/ff/site.conf sites-d1/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
+  sed "s/\<Freifunk.freifunk.net\>/freifunk/g" sites-d1/ff/site-tmp.conf > sites-d1/ff/site.conf
   rm -f sites-d1/ff/site-tmp.conf
 }
 
@@ -119,11 +145,33 @@ create_experimental_configs_d4(){
         i=$i+1
     done
 }
+create_experimental_configs_d5(){
+  mkdir -p sites-d5-experimental
+  typeset -i i=0
+    for SITE in "${SITES5[@]}"
+      do
+        mkdir -p sites-d5-experimental/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d5.experimental.example | sed "/ssid/s/\<lippe\>/${SSID5[i]}/g" > sites-d5-experimental/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d5.experimental.example > sites-d5-experimental/$SITE/site.mk
+        i=$i+1
+    done
+}
+create_experimental_configs_d6(){
+  mkdir -p sites-d6-experimental
+  typeset -i i=0
+    for SITE in "${SITES6[@]}"
+      do
+        mkdir -p sites-d6-experimental/$SITE
+        sed "s/\<lip\>/$SITE/g" site.conf.d6.experimental.example | sed "/ssid/s/\<lippe\>/${SSID6[i]}/g" > sites-d6-experimental/$SITE/site.conf
+        sed "s/\<lip\>/$SITE/g" site.mk.d6.experimental.example > sites-d6-experimental/$SITE/site.mk
+        i=$i+1
+    done
+}
 
 # Sonderfall SSID Freifunk - Experimental
 create_experimental_ssid_freifunk(){
   mv sites-d1-experimental/ff/site.conf sites-d1-experimental/ff/site-tmp.conf
-  sed "s/\<Freifunk.freifunk.net\>/Freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
+  sed "s/\<Freifunk.freifunk.net\>/freifunk/g" sites-d1-experimental/ff/site-tmp.conf > sites-d1-experimental/ff/site.conf
   rm -f sites-d1-experimental/ff/site-tmp.conf
 }
 
@@ -133,9 +181,13 @@ create_stable_ssid_freifunk
 create_stable_configs_d2
 create_stable_configs_d3
 create_stable_configs_d4
+create_stable_configs_d5
+create_stable_configs_d6
 create_experimental_configs_d1
 create_experimental_ssid_freifunk
 create_experimental_configs_d2
 create_experimental_configs_d3
 create_experimental_configs_d4
+create_experimental_configs_d5
+create_experimental_configs_d6
 exit

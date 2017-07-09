@@ -20,7 +20,7 @@ msgstr ""
 
 msgid "gluon-config-mode:pubkey"
 msgstr ""
-"<p>This is your Freifunk node's public key."
+"<p>Your Freifunk node's setup is complete."
 "</p>"
 "<div class=\"the-key\">"
 " # <%= hostname %>"
@@ -39,3 +39,12 @@ msgstr ""
 "10 seconds during normal operation. The device will then reboot into config "
 "mode.</p>"
 "<p>Have fun with your node and exploring of the Freifunk network!</p>"
+
+msgid "gluon-config-mode:altitude-label"
+msgstr "Altitude"
+
+msgid "gluon-config-mode:altitude-help"
+msgstr ""
+"Specifying the altitude is optional and should only be done if a proper "
+"value is known."
+

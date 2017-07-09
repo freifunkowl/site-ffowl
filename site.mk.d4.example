@@ -1,4 +1,5 @@
 GLUON_SITE_PACKAGES := \
+	gluon-mesh-batman-adv-15 \
 	ffpb-ebtables-net-rules \
 	gluon-alfred \
 	gluon-respondd \
@@ -16,10 +17,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-portconfig \
 	gluon-luci-private-wifi \
 	gluon-luci-wifi-config \
-	gluon-mesh-batman-adv-15 \
 	gluon-migrate-vpn \
 	gluon-mesh-vpn-tunneldigger \
-	gluon-next-node \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
@@ -40,7 +39,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.8.14-d4-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.8.20-d4-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
@@ -62,3 +61,5 @@ GLUON_LANGS ?= de en
 # Set Gluon region code for Archer
 GLUON_REGION := eu
 
+# Activate image creation for ATH10K devices
+GLUON_ATH10K_MESH := 11s

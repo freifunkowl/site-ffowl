@@ -7,17 +7,17 @@
 -- community specific changes to it!
 {
   -- Used for generated hostnames, e.g. freifunk-abcdef123456. (optional)
-  hostname_prefix = 'fflip-d2-lip-',
+  hostname_prefix = 'fflip-d5-lip-',
 
   -- Name of the community.
-  site_name = 'Freifunk Lippe Domaene 2',
+  site_name = 'Freifunk Lippe Domaene 5',
 
   -- Shorthand of the community.
   site_code = 'fflip',
 
   -- Prefixes used within the mesh. Both are required.
-  prefix4 = '10.15.8.0/21',
-  prefix6 = '2a03:2260:2004:200::/64',
+  prefix4 = '10.15.32.0/21',
+  prefix6 = '2a03:2260:2004:500::/64',
 
   -- Timezone of your community.
   -- See http://wiki.openwrt.org/doc/uci/system#time_zones
@@ -43,7 +43,7 @@
 
     mesh = {
       -- Adjust these values!
-      id = 'fflip-mesh-02',
+      id = 'fflip-mesh-05',
       mcast_rate = 12000,
       -- disabled = true, (optional)
     },
@@ -58,7 +58,7 @@
       ssid = 'lippe.freifunk.net',
     },
     mesh = {
-      id = 'fflip-mesh-02',
+      id = 'fflip-mesh-05',
       mcast_rate = 12000,
     },
  },
@@ -67,20 +67,19 @@
   -- connected to using a known IP address.
   next_node = {
     -- anycast IPs of all nodes
-    ip4 = '10.15.8.1',
-    ip6 = '2a03:2260:2004:200::1',
+    ip4 = '10.15.32.1',
+    ip6 = '2a03:2260:2004:500::1',
 
     -- anycast MAC of all nodes
-    mac = 'de:42:ab:cd:ef:43',
+    mac = 'de:42:ab:cd:ef:46',
   },
 
   tunneldigger_mesh_vpn = {
 	mtu = 1364,
 	enabled = true,
 	brokers = {
-		'gw01.freifunk-lippe.de:20002',	
-		'gw02.freifunk-lippe.de:20002',
-                },
+		'gw05.freifunk-lippe.de:20005',
+		  },
 				
 		bandwidth_limit = {
 		    enabled = false,
@@ -96,7 +95,7 @@
       stable = {
         name = 'stable',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.freifunk-lippe.de/stable/d2/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d2/lip/upgrade'},
+        mirrors = {'http://update.freifunk-lippe.de/stable/d5/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d5/lip/upgrade'},
         good_signatures = 2,
         -- List of public keys of maintainers.
         pubkeys = {
