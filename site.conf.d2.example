@@ -82,7 +82,7 @@
   mesh_vpn = {
      
      enabled = true,
-     mtu = 1364,
+     mtu = 1532,
 
   tunneldigger = {
 	

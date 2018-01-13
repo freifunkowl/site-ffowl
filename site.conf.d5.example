@@ -82,12 +82,12 @@
   mesh_vpn = {
      
      enabled = true,
-     mtu = 1364,
+     mtu = 1532,
 
   tunneldigger = {
 	
 	brokers = {
-		'gw05.freifunk-lippe.de:20005',
+		'playground.freifunk-lippe.de:20005',
                 },
 				
   bandwidth_limit = {
