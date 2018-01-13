@@ -15,9 +15,14 @@
   -- Shorthand of the community.
   site_code = 'fflip',
 
+  -- 32 bytes of random data, encoded in hexacimal
+  -- Must be the same of all nodes in one mesh domain
+  -- Can be generated using: echo $(hexdump -n 32 -e '1/1 "%02x"' </dev/urandom)
+  site_seed = '3250482e309564e22e76ba534822b68f9afc7e6db3943226700e729a8dc1c525',
+
   -- Prefixes used within the mesh. Both are required.
   prefix4 = '10.15.32.0/21',
-  prefix6 = '2a03:2260:2004:500::/64',
+  prefix6 = '2a03:2260:2004:555::/64',
 
   -- Timezone of your community.
   -- See http://wiki.openwrt.org/doc/uci/system#time_zones
@@ -68,25 +73,30 @@
   next_node = {
     -- anycast IPs of all nodes
     ip4 = '10.15.32.1',
-    ip6 = '2a03:2260:2004:500::1',
+    ip6 = '2a03:2260:2004:555::1',
 
     -- anycast MAC of all nodes
     mac = 'de:42:ab:cd:ef:46',
   },
 
-  tunneldigger_mesh_vpn = {
-	mtu = 1364,
-	enabled = true,
+  mesh_vpn = {
+     
+     enabled = true,
+     mtu = 1532,
+
+  tunneldigger = {
+	
 	brokers = {
-		'gw05.freifunk-lippe.de:20005',
-		  },
+		'playground.freifunk-lippe.de:20005',
+                },
 				
-		bandwidth_limit = {
+  bandwidth_limit = {
 		    enabled = false,
 		    ingress = 25000,
 		    egress = 5000,
 		},
 	},
+   },
 
   autoupdater = {
     branch = 'stable',
@@ -95,7 +105,7 @@
       stable = {
         name = 'stable',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.freifunk-lippe.de/stable/d5/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d5/lip/upgrade'},
+        mirrors = {'http://update.freifunk-lippe.de/stable/d5/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/d5/lip/upgrade', 'http://update3.freifunk-lippe.de/stable/d5/lip/upgrade'},
         good_signatures = 2,
         -- List of public keys of maintainers.
         pubkeys = {
@@ -106,6 +116,22 @@
         },
         },
     },
+  },
+
+  ssid_changer = {
+    enabled = true,
+    switch_timeframe = 30,    -- only once every timeframe (in minutes) the SSID will change to the Offline-SSID 
+                              -- set to 1440 to change once a day
+                              -- set to 1 minute to change every time the router gets offline
+    first = 5,                -- the first few minutes directly after reboot within which an Offline-SSID always may be activated (must be <= switch_timeframe)
+    prefix = 'FF_Offline_',   -- use something short to leave space for the nodename (no '~' allowed!)
+    suffix = 'nodename',      -- generate the SSID with either 'nodename', 'mac' or to use only the prefix: 'none'
+  
+    tq_limit_enabled = false, -- if false, the offline SSID will only be set if there is no gateway reacheable
+                              -- upper and lower limit to turn the offline_ssid on and off
+                              -- in-between these two values the SSID will never be changed to prevent it from toggeling every minute.
+    tq_limit_max = 45,        -- upper limit, above that the online SSID will be used
+    tq_limit_min = 35         -- lower limit, below that the offline SSID will be used
   },
 
 }

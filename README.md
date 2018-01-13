@@ -3,6 +3,7 @@ Site-Konfigurationsdateien für Freifunk-Lippe
 
 Die Freifunk-Lippe-Firmware basiert auf den folgenden Gluon Versionen:
 
-* 0.8.20 -> Gluon 2016.2.5
 
-http://gluon.readthedocs.io/en/v2016.2.5/releases/v2016.2.5.html
+* 0.9.0 -> Gluon 2017.1.4 -> LEDE
+
+http://gluon.readthedocs.io/en/v2017.1.4/releases/v2017.1.4.html

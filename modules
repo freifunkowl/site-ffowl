@@ -1,10 +1,7 @@
-GLUON_SITE_FEEDS='fflip ffrl ffpb'
+GLUON_SITE_FEEDS='fflip ffrl'
 
-PACKAGES_FFLIP_REPO=https://github.com/FreifunkLippe/packages
-PACKAGES_FFLIP_COMMIT=fec2d2c1b688a9dc381b3fec97100e35881590e3
+PACKAGES_FFLIP_REPO=https://github.com/freifunklippe/packages
+PACKAGES_FFLIP_COMMIT=7b49140200bb68a8fad154e6a84d9e4c65b08bab
 
 PACKAGES_FFRL_REPO=https://github.com/ffrl/ffrl-packages
-PACKAGES_FFRL_COMMIT=934ac0ee6031ab2694069fd5ce7f61c9bc255ba0
-
-PACKAGES_FFPB_REPO=http://git.c3pb.de/freifunk-pb/ffho-packages.git
-PACKAGES_FFPB_COMMIT=2b92e12de39cf0bbc6726e81ab84144177adca3d
+PACKAGES_FFRL_COMMIT=434f2181290b129bdfbb09ca16e1d9696c8327be

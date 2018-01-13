@@ -20,7 +20,7 @@ msgstr ""
 
 msgid "gluon-config-mode:pubkey"
 msgstr ""
-"<p>Your Freifunk node's setup is complete."
+"<p>Initial setup is ready."
 "</p>"
 "<div class=\"the-key\">"
 " # <%= hostname %>"
