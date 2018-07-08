@@ -3,8 +3,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-alfred \
 	gluon-respondd \
 	ffffm-additional-wifi-json-info \
-	ffho-autoupdater-wifi-fallback \
-	ffho-web-autoupdater \
 	gluon-autoupdater \
 	gluon-config-mode-autoupdater \
 	gluon-config-mode-contact-info \
@@ -25,11 +23,13 @@ GLUON_SITE_PACKAGES := \
 	gluon-status-page \
 	haveged \
 	gluon-aptimeclock \
-	gluon-weeklyreboot \
+	gluon-nightboot \
 	gluon-treatment \
 	gluon-ssid-changer \
 	gluon-banner \
-	gluon-quickfix \
+	gluon-rsk-block-mesh \
+	gluon-rsk-config \
+	rsk-robinson \
 	iwinfo
 
 # basic support for USB stack
@@ -173,7 +173,7 @@ GLUON_TLWDR4900_SITE_PACKAGES := $(USB_PACKAGES_BASIC) $(TOOLS_PACKAGES) $(USB_P
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 0.9.0-d6-lip-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.9.6-d6-lip-$(shell date '+%Y%m%d')
 
 
 ##	GLUON_RELEASE
