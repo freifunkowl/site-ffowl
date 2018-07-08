@@ -18,7 +18,7 @@
   -- 32 bytes of random data, encoded in hexacimal
   -- Must be the same of all nodes in one mesh domain
   -- Can be generated using: echo $(hexdump -n 32 -e '1/1 "%02x"' </dev/urandom)
-  site_seed = '3250482e309564e22e76ba534822b68f9afc7e6db3943226700e729a8dc1c525',
+  domain_seed = 'f9abbbf4758ea96b1df38a561b3ce538c58778689d73c9aaad4b8da41e2dd782',
 
   -- Prefixes used within the mesh. Both are required.
   prefix4 = '10.15.32.0/21',
@@ -79,6 +79,8 @@
     mac = 'de:42:ab:cd:ef:46',
   },
 
+  poe_passthrough = true,
+
   mesh_vpn = {
      
      enabled = true,
@@ -110,7 +112,6 @@
         -- List of public keys of maintainers.
         pubkeys = {
                 '6c36b7cd1c78b7107994fccc6d9d6d31ba2bcb04f281f114a5a9e1043efef594', -- Michael
-                'e864d8c809fff69a150583519976e6f2edc413e4e74122bc6b2bd218e6b508d3', -- Hauke
                 '523b9680e41b04e28ef9f839856498859930e3033fd39a7118305f2e0fbc205c', -- Andre
                 '57a43b0d8cd7af864dedee693ba364e50324c78da4a929067a9eea8f8aa6b768', -- Joerg
         },
@@ -133,5 +134,21 @@
     tq_limit_max = 45,        -- upper limit, above that the online SSID will be used
     tq_limit_min = 35         -- lower limit, below that the offline SSID will be used
   },
+
+  config_mode = {
+   -- Show/hide the altitude field
+     geo_location = {
+     show_altitude = false,
+     },
+   -- define if the contact field is obligatory (optional)
+     owner = {
+     obligatory = true,
+     },
+   -- Show/hide the password login
+    -- remote_login = {
+      -- show_password_form = true,
+      -- min_password_length = 12,
+    -- },
+  }
 
 }
