@@ -16,11 +16,15 @@ msgstr ""
 "Knoten. Fülle das folgende Formular deinen Vorstellungen "
 "entsprechend aus und sende es ab. Bitte verändere wichtige Einstellungen wie automatische Updates "
 "nur wenn du einen wichtigen Grund dazu hast. Im Zweifelsfall helfen wir gerne weiter."
-"Aus Datenschutzgründen weisen wir dich darauf hin, dass in den Knoten hinterlegte Kontaktdaten "
-"auf unserer Knotenkarte unter https://map.freifunk-lippe.de öffentlich für jedermann einsehbar sind. "
-"Daher empfehlen wir, dort eine Wegwerf-Emailadresse zum Spamschutz zu hinterlegen. "
-"Da wir zur Datensparsamkeit verpflichtet sind, löschen wir alle 3 Monate alle Offline-Knoten von der Karte. "
-"Diese werden der Karte automatisch wieder hinzugefügt, sobald diese wieder online gehen. "
+
+msgid "gluon-config-mode:domain"
+msgstr "Domäne"
+
+msgid "gluon-config-mode:domain-select"
+msgstr ""
+"Hier hast du die Möglichkeit, die Mesh-Domäne, in der sich dein Knoten "
+"befindet, auszuwählen. Bitte denke daran, dass sich dein Knoten nur mit den "
+"Knoten der ausgewählten Domäne verbinden kann."
 
 msgid "gluon-config-mode:pubkey"
 msgstr ""
@@ -31,6 +35,13 @@ msgstr ""
 " <br/>"
 "<%= pubkey %>"
 "</div>"
+
+msgid "gluon-config-mode:novpn"
+msgstr ""
+"<p>Du hast ausgewählt, <strong>kein Mesh-VPN</strong> "
+"zu nutzen. Dein Knoten kann also nur dann eine Verbindung zum Freifunk-Netz "
+"aufbauen, wenn andere Freifunk-Router in WLAN-Reichweite sind."
+"</p>"
 
 msgid "gluon-config-mode:reboot"
 msgstr ""
@@ -51,3 +62,21 @@ msgid "gluon-config-mode:altitude-help"
 msgstr ""
 "Die Höhenangabe ist optional und sollte nur gesetzt werden, wenn ein "
 "exakter Wert bekannt ist."
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-hostname/i18n/
+msgid "gluon-config-mode:hostname-help"
+msgstr ""
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-geo-location/i18n/
+msgid "gluon-config-mode:geo-location-help"
+msgstr ""
+
+# Leave empty to use the default text, which can be found in:
+# package/gluon-config-mode-contact-info/i18n/
+msgid "gluon-config-mode:contact-help"
+msgstr ""
+
+msgid "gluon-config-mode:contact-note"
+msgstr ""

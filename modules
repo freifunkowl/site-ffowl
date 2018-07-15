@@ -1,12 +1,32 @@
+# This file allows specifying additional repositories to use
+# when building gluon.
+#
+# In most cases, it is not required so don't add it.
+
+##	GLUON_SITE_FEEDS
+#		for each feed name given, add the corresponding PACKAGES_* lines
+#		documented below
+#
 GLUON_SITE_FEEDS='fflip ffrl ssidchanger'
 
+##	PACKAGES_$feedname_REPO
+#		the  git repository from where to clone the package feed
+#
 PACKAGES_FFLIP_REPO=https://github.com/freifunklippe/packages
-PACKAGES_FFLIP_COMMIT=44681e54a372a9db9e129a1d890a1016d3f5ecb5
-
 PACKAGES_FFRL_REPO=https://github.com/ffrl/ffrl-packages
-PACKAGES_FFRL_COMMIT=434f2181290b129bdfbb09ca16e1d9696c8327be
-
 PACKAGES_SSIDCHANGER_REPO=https://github.com/freifunk-nord/gluon-ssid-changer.git
-PACKAGES_SSIDCHANGER_COMMIT=3d15977d25d07c039680f0ace4c98c8c5223a9e9
-PACKAGES_SSIDCHANGER_BRANCH=2017.1.x
+
+##	PACKAGES_$feedname_COMMIT
+#		the version/commit of the git repository to clone
+#
+PACKAGES_FFLIP_COMMIT=44681e54a372a9db9e129a1d890a1016d3f5ecb5
+PACKAGES_FFRL_COMMIT=434f2181290b129bdfbb09ca16e1d9696c8327be
+PACKAGES_SSIDCHANGER_COMMIT=222b96a30259a03ca8ecdb173d9d326077a6efec
+
+##  PACKAGES_$feedname_BRANCH
+#   the branch to check out
+#
+PACKAGES_SSIDCHANGER_BRANCH=2018.1.x
+
+
 
