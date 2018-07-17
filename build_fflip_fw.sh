@@ -44,7 +44,6 @@ build_stable_branch_d1(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-rt305x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ipq806x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mvebu V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-
       make manifest GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/d1/$SITE
