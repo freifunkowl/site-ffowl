@@ -14,6 +14,7 @@ $DIR/mksites.sh
 # Variables ###################################################################
 RELEASE="v2018.1.1"
 SITES=(`ls $DIR/sites`)
+SITESTEST=(`ls $DIR/sites-testing`)
 SITESEX=(`ls $DIR/sites-experimental`)
 #
 CORES=12 # Specifies the number of jobs (commands) to run simultaneously.
@@ -21,7 +22,61 @@ SECRET=$DIR/secret
 ###############################################################################
 
 # Functions ###################################################################
+
+build_stable_testing_branch(){
+  
+rm -rf $DIR/domains
+mkdir $DIR/domains
+cp $DIR/domains-templates/d1test.conf $DIR/domains
+cp $DIR/domains-templates/d2test.conf $DIR/domains
+cp $DIR/domains-templates/d3test.conf $DIR/domains
+cp $DIR/domains-templates/d4test.conf $DIR/domains
+
+  for SITE in "${SITESTEST[@]}"
+    do
+      cp -r $DIR/sites-testing/$SITE/*.* $DIR/gluon/site/
+      cd $DIR/gluon/
+      # This creates images for the stable branch
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ramips-mt7620 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ramips-mt7621 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ramips-mt7628 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ramips-rt305x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=ipq806x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=testing GLUON_TARGET=mvebu V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      make manifest BROKEN=1 GLUON_BRANCH=testing
+      ./contrib/sign.sh $SECRET output/images/sysupgrade/testing.manifest   
+      mkdir -p output/images-testing/$SITE
+      mv -f output/images/factory output/images-testing/$SITE/
+      md5sum output/images-testing/$SITE/factory/* > output/images-testing/$SITE/factory/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-testing/$SITE/factory/pruefsummen.md5 
+      mv -f output/images/sysupgrade output/images-testing/$SITE/
+      md5sum output/images-testing/$SITE/sysupgrade/* > output/images-testing/$SITE/sysupgrade/pruefsummen.md5
+      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-testing/$SITE/sysupgrade/pruefsummen.md5
+      rm $DIR/gluon/site/site.*
+      mkdir -p $DIR/gluon/output/images-testing/logs
+      mv $DIR/gluon/make*.log output/images-testing/logs
+      echo "Finished building testing branch."
+  done
+}
+
 build_stable_branch(){
+
+rm -rf $DIR/domains
+mkdir $DIR/domains
+cp $DIR/domains-templates/d1ff.conf $DIR/domains
+cp $DIR/domains-templates/d1lip.conf $DIR/domains
+cp $DIR/domains-templates/d2ff.conf $DIR/domains
+cp $DIR/domains-templates/d2lip.conf $DIR/domains
+cp $DIR/domains-templates/d3ff.conf $DIR/domains
+cp $DIR/domains-templates/d3lip.conf $DIR/domains
+cp $DIR/domains-templates/d4ff.conf $DIR/domains
+cp $DIR/domains-templates/d4lip.conf $DIR/domains
+
   for SITE in "${SITES[@]}"
     do
       cp -r $DIR/sites/$SITE/*.* $DIR/gluon/site/
@@ -38,7 +93,7 @@ build_stable_branch(){
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-rt305x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ipq806x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mvebu V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      make manifest GLUON_BRANCH=stable
+      make manifest BROKEN=1 GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/$SITE
       mv -f output/images/factory output/images/$SITE/
@@ -55,17 +110,31 @@ build_stable_branch(){
 }
 
 build_experimental_branch(){
+
+rm -rf $DIR/domains
+mkdir $DIR/domains
+cp $DIR/domains-templates/d1ff.conf $DIR/domains
+cp $DIR/domains-templates/d1lip.conf $DIR/domains
+cp $DIR/domains-templates/d2ff.conf $DIR/domains
+cp $DIR/domains-templates/d2lip.conf $DIR/domains
+cp $DIR/domains-templates/d3ff.conf $DIR/domains
+cp $DIR/domains-templates/d3lip.conf $DIR/domains
+cp $DIR/domains-templates/d4ff.conf $DIR/domains
+cp $DIR/domains-templates/d4lip.conf $DIR/domains
+
   for SITE in "${SITESEX[@]}"
     do
       cp -r $DIR/sites-experimental/$SITE/*.* $DIR/gluon/site/
       cd $DIR/gluon/
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2708 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2709 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      #time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2710 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2710 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      make manifest BROKEN=1 GLUON_BRANCH=experimental
+      ./contrib/sign.sh $SECRET output/images/sysupgrade/experimental.manifest 
       mkdir -p output/images-experimental/$SITE
       mv -f output/images/factory output/images-experimental/$SITE/
       md5sum output/images-experimental/$SITE/factory/* > output/images-experimental/$SITE/factory/pruefsummen.md5
@@ -78,6 +147,11 @@ build_experimental_branch(){
       mv $DIR/gluon/make*.log output/images-experimental/logs
       echo "Finished building Experimental branch."
   done
+}
+
+create_logs_stable_testing(){
+  tar -czvf $DIR/gluon/output/buildlog_stable_testing.tar $DIR/gluon/output/images-testing/logs
+  rm -rf $DIR/gluon/output/images-testing/logs
 }
 
 create_logs_stable(){
@@ -120,6 +194,8 @@ cp $DIR/modules $DIR/gluon/site/
 cp -r $DIR/i18n/ $DIR/gluon/site/
 cp -r $DIR/domains/ $DIR/gluon/site/
 
+build_stable_testing_branch
+create_logs_stable_testing
 build_stable_branch
 create_logs_stable
 

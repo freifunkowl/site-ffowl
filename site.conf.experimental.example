@@ -65,7 +65,7 @@
       experimental = {
         name = 'experimental',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.freifunk-lippe.de/experimental/lip/upgrade', 'http://update2.freifunk-lippe.de/experimental/lip/upgrade', 'http://update3.freifunk-lippe.de/experimental/lip/upgrade'},
+        mirrors = {'http://update.freifunk-lippe.de/experimental/lip/upgrade', 'http://update2.freifunk-lippe.de/experimental/lip/upgrade'},
         good_signatures = 1,
         -- List of public keys of maintainers.
         pubkeys = {
