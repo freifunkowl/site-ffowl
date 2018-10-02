@@ -1,7 +1,7 @@
 {
   site_name = 'Freifunk Lippe',
   site_code = 'fflip',
-  default_domain = 'd1lip',
+  default_domain = 'd1test',
 
   timezone = 'CET-1CEST,M3.5.0,M10.5.0/3',
   ntp_server = {'0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org'},
@@ -47,14 +47,14 @@
  },
 
   autoupdater = {
-    branch = 'stable',
+    branch = 'testing',
 
     branches = {
-      stable = {
-        name = 'stable',
+     testing = {
+        name = 'testing',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.freifunk-lippe.de/stable/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/lip/upgrade'},
-        good_signatures = 2,
+        mirrors = {'http://update.freifunk-lippe.de/testing/lip/upgrade', 'http://update2.freifunk-lippe.de/testing/lip/upgrade'},
+        good_signatures = 1,
         -- List of public keys of maintainers.
         pubkeys = {
                 '6c36b7cd1c78b7107994fccc6d9d6d31ba2bcb04f281f114a5a9e1043efef594', -- Michael

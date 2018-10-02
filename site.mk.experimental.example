@@ -38,12 +38,11 @@ GLUON_SITE_PACKAGES := \
 	gluon-treatment \
 	gluon-ssid-changer \
 	gluon-banner \
+	gluon-quickfix \
 	gluon-rsk-block-mesh \
 	gluon-rsk-config \
 	rsk-robinson \
-	gluon-config-mode-domain-select \
-	respondd-module-airtime
-
+	gluon-config-mode-domain-select
 
 # basic support for USB stack
 USB_PACKAGES_BASIC := \
@@ -186,7 +185,7 @@ GLUON_TLWDR4900_SITE_PACKAGES := $(USB_PACKAGES_BASIC) $(TOOLS_PACKAGES) $(USB_P
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 1.0.2-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 1.0.4-$(shell date '+%Y%m%d')
 
 # Variables set with ?= can be overwritten from the command line
 
