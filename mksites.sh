@@ -28,19 +28,6 @@ create_stable_configs(){
     done
 }
 
-create_stable_configs_testing(){
-  mkdir -p sites-testing
-  typeset -i i=0
-    for SITE in "${SITES[@]}"
-      do
-        mkdir -p sites-testing/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.testing.example | sed "s/\<d1lip\>/d1$SITE/g" > sites-testing/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.testing.example > sites-testing/$SITE/site.mk
-        i=$i+1
-    done
-}
-
-
 # Erzeuge Configs fuer Experimental-Branch
 create_experimental_configs(){
   mkdir -p sites-experimental
@@ -55,7 +42,6 @@ create_experimental_configs(){
 }
 
 # Hauptprogramm ###############################################################
-create_stable_configs_testing
 create_stable_configs
 create_experimental_configs
 exit

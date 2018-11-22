@@ -37,7 +37,7 @@
 
   mesh_vpn = {
      enabled = true,
-     mtu = 1532,
+     mtu = 1312,
 
   bandwidth_limit = {
      enabled = false,
