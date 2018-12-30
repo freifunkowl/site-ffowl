@@ -25,13 +25,24 @@
   config_mode = {
     hostname = {
       optional = false,
+      prefill = true,
     },
-    geo_location = {
-      show_altitude = false,
-    },
-    remote_login = {
+   geo_location = {
+    show_altitude = false,
+     osm = {
+       center = {
+         lat = 52.000946848,
+         lon = 8.854293823,
+       },
+       zoom = 13,
+       -- openlayers_url = 'http://ffac.example.org/openlayer',
+     },
+  },     remote_login = {
       show_password_form = true,
       min_password_length = 10,
+    },
+    owner = {
+      obligatory = true
     },
   },
 

@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2018.1.2"
+RELEASE="v2018.2"
 SITES=(`ls $DIR/sites`)
 SITESEX=(`ls $DIR/sites-experimental`)
 #
@@ -47,10 +47,11 @@ cp $DIR/domains-templates/d4lip.conf $DIR/domains
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-mt7620 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-mt7621 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-mt7628 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-mt76x8 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-rt305x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ipq806x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mvebu V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ipq40xx V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mvebu-cortexa9 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       make manifest BROKEN=1 GLUON_BRANCH=stable
       ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
       mkdir -p output/images/$SITE
@@ -87,7 +88,7 @@ cp $DIR/domains-templates/d4lip.conf $DIR/domains
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2708 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2709 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2710 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=-cortexa7 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
@@ -131,6 +132,7 @@ if [ -d "$DIR/gluon" ]
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
+    # Checkout regular source
     git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
     git remote add gluon https://github.com/freifunk-gluon/gluon.git
     mkdir -p $DIR/gluon/site
