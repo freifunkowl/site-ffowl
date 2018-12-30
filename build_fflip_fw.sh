@@ -26,13 +26,9 @@ build_stable_branch(){
 
 rm -rf $DIR/domains
 mkdir $DIR/domains
-cp $DIR/domains-templates/d1ff.conf $DIR/domains
 cp $DIR/domains-templates/d1lip.conf $DIR/domains
-cp $DIR/domains-templates/d2ff.conf $DIR/domains
 cp $DIR/domains-templates/d2lip.conf $DIR/domains
-cp $DIR/domains-templates/d3ff.conf $DIR/domains
 cp $DIR/domains-templates/d3lip.conf $DIR/domains
-cp $DIR/domains-templates/d4ff.conf $DIR/domains
 cp $DIR/domains-templates/d4lip.conf $DIR/domains
 
   for SITE in "${SITES[@]}"
@@ -72,13 +68,9 @@ build_experimental_branch(){
 
 rm -rf $DIR/domains
 mkdir $DIR/domains
-cp $DIR/domains-templates/d1ff.conf $DIR/domains
 cp $DIR/domains-templates/d1lip.conf $DIR/domains
-cp $DIR/domains-templates/d2ff.conf $DIR/domains
 cp $DIR/domains-templates/d2lip.conf $DIR/domains
-cp $DIR/domains-templates/d3ff.conf $DIR/domains
 cp $DIR/domains-templates/d3lip.conf $DIR/domains
-cp $DIR/domains-templates/d4ff.conf $DIR/domains
 cp $DIR/domains-templates/d4lip.conf $DIR/domains
 
   for SITE in "${SITESEX[@]}"
