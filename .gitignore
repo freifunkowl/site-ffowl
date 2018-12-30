@@ -1,11 +1,11 @@
 ecdsautils/
 gluon/
 libuecc/
+domains/
 ecdsautils/
 firmware/
 sites/
 sites-experimental/
-sites-testing/
 secret*
 copymanifest.sh
 dowork.sh
