@@ -5,8 +5,8 @@ ecdsautils/
 firmware/
 sites/
 sites-experimental/
-sites-testing/
 secret*
+do.sh
 copymanifest.sh
 dowork.sh
 uploadfw.sh
