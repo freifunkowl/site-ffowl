@@ -17,6 +17,7 @@ GLUON_FEATURES := \
 	web-advanced \
 	web-private-wifi \
 	config-mode-geo-location-osm \
+	web-osm \
 	web-wizard
 
 ##	GLUON_MULTIDOMAIN
@@ -33,16 +34,17 @@ GLUON_MULTIDOMAIN=1
 GLUON_SITE_PACKAGES := \
 	haveged \
 	iwinfo \
+	iw-full \
 	gluon-aptimeclock \
 	gluon-nightboot \
 	gluon-treatment \
 	gluon-ssid-changer \
 	gluon-banner \
-	gluon-quickfix \
 	gluon-rsk-block-mesh \
 	gluon-rsk-config \
 	rsk-robinson \
-	gluon-config-mode-domain-select
+	gluon-config-mode-domain-select \
+	gluon-scheduled-domain-switch
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
@@ -50,7 +52,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 1.1.0-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 1.1.2-$(shell date '+%Y%m%d')
 
 # Variables set with ?= can be overwritten from the command line
 
