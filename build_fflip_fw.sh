@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2018.2"
+RELEASE="v2018.2.1"
 SITES=(`ls $DIR/sites`)
 SITESEX=(`ls $DIR/sites-experimental`)
 #
@@ -26,10 +26,7 @@ build_stable_branch(){
 
 rm -rf $DIR/domains
 mkdir $DIR/domains
-cp $DIR/domains-templates/d1lip.conf $DIR/domains
-cp $DIR/domains-templates/d2lip.conf $DIR/domains
-cp $DIR/domains-templates/d3lip.conf $DIR/domains
-cp $DIR/domains-templates/d4lip.conf $DIR/domains
+cp $DIR/domains-templates/d*.conf $DIR/domains
 
   for SITE in "${SITES[@]}"
     do
@@ -68,10 +65,7 @@ build_experimental_branch(){
 
 rm -rf $DIR/domains
 mkdir $DIR/domains
-cp $DIR/domains-templates/d1lip.conf $DIR/domains
-cp $DIR/domains-templates/d2lip.conf $DIR/domains
-cp $DIR/domains-templates/d3lip.conf $DIR/domains
-cp $DIR/domains-templates/d4lip.conf $DIR/domains
+cp $DIR/domains-templates/d*.conf $DIR/domains
 
   for SITE in "${SITESEX[@]}"
     do
@@ -80,7 +74,7 @@ cp $DIR/domains-templates/d4lip.conf $DIR/domains
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2708 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2709 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=brcm2708-bcm2710 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=-cortexa7 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=sunxi-cortexa7 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
       time make -j$CORES BROKEN=1 GLUON_BRANCH=experimental GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
