@@ -4,6 +4,7 @@ libuecc/
 ecdsautils/
 firmware/
 sites/
+domains/
 sites-experimental/
 secret*
 do.sh
