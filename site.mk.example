@@ -45,6 +45,13 @@ GLUON_SITE_PACKAGES := \
 	rsk-robinson \
 	gluon-config-mode-domain-select \
 	gluon-scheduled-domain-switch
+	
+# Especially the first Raspberry-Pi does not have a wifi-chip and needs a usb-wifi-dongle
+# This adds USB-Support, USB-Wifi-Support and nano-editor for Raspberry-Pis
+# - D. Marx (github.com/derco0n) 04/2019
+GLUON_raspberry-pi_SITE_PACKAGES := kmod-usb-core kmod-usb2 kmod-rtl8192cu kmod-rt2800-usb kmod-rtl8187 usbutils nano
+GLUON_raspberry-pi-2_SITE_PACKAGES := kmod-usb-core kmod-usb2 kmod-rtl8192cu kmod-rt2800-usb kmod-rtl8187 usbutils nano
+GLUON_raspberry-pi-3_SITE_PACKAGES := kmod-usb-core kmod-usb2 kmod-rtl8192cu kmod-rt2800-usb kmod-rtl8187 usbutils nano
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
