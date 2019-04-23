@@ -43,7 +43,7 @@
       min_password_length = 10,
     },
     owner = {
-      obligatory = true
+      optional = false
     },
   },
 
