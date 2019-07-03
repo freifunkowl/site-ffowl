@@ -12,7 +12,7 @@ DIR=`pwd`
 $DIR/mksites.sh
 
 # Variables ###################################################################
-RELEASE="v2018.2.1"
+RELEASE="v2018.2.2"
 SITES=(`ls $DIR/sites`)
 SITESEX=(`ls $DIR/sites-experimental`)
 #
@@ -135,6 +135,7 @@ cp $DIR/modules $DIR/gluon/site/
 cp -r $DIR/i18n/ $DIR/gluon/site/
 cp -r $DIR/domains/ $DIR/gluon/site/
 
+# This creates the stable branch
 build_stable_branch
 create_logs_stable
 
