@@ -1,7 +1,7 @@
 {
   site_name = 'Freifunk Lippe',
   site_code = 'fflip',
-  default_domain = 'd1lip',
+  default_domain = 'd1ff',
 
   timezone = 'CET-1CEST,M3.5.0,M10.5.0/3',
   ntp_server = {'0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org'},
@@ -45,7 +45,7 @@
 
   mesh_vpn = {
      enabled = true,
-     mtu = 1312,
+     mtu = 1364,
 
   bandwidth_limit = {
      enabled = false,

@@ -112,6 +112,7 @@ if [ -d "$DIR/gluon" ]
         mkdir -p $DIR/gluon/site
       fi
     cp $DIR/sites/lip/site.* $DIR/gluon/site/
+    make dirclean
     make update
     git pull
     git submodule update --remote gluon

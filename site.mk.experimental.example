@@ -36,6 +36,7 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iw-full \
 	gluon-aptimeclock \
+	gluon-vpnlimittimeclock \
 	gluon-nightboot \
 	gluon-treatment \
 	gluon-ssid-changer \
@@ -45,7 +46,9 @@ GLUON_SITE_PACKAGES := \
 	gluon-rsk-config \
 	rsk-robinson \
 	gluon-web-logging \
-	gluon-scheduled-domain-switch \
+	gluon-config-mode-ppa \
+	ffffm-button-bind \
+	fflip-speedtest \
 	gluon-config-mode-domain-select
 
 # basic support for USB stack
@@ -196,7 +199,7 @@ GLUON_raspberry-pi-3_SITE_PACKAGES := kmod-usb-core kmod-usb2 kmod-rtl8192cu kmo
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := 1.1.4-$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 1.1.5-$(shell date '+%Y%m%d')
 
 # Variables set with ?= can be overwritten from the command line
 
