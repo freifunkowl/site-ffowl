@@ -1,22 +1,20 @@
 {
   site_name = 'Freifunk Lippe',
   site_code = 'fflip',
-  default_domain = 'd1lip',
+  default_domain = 'dom1',
 
   timezone = 'CET-1CEST,M3.5.0,M10.5.0/3',
   ntp_server = {'0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org'},
   regdom = 'DE',
 
   wifi24 = {
-  	channel = 9,
-	mesh = {
-		mcast_rate = 12000;
+  	mesh = {
+		mcast_rate = 12000,
 	},
   },
   wifi5 = {
-   	channel = 44,
 	mesh = {
-		mcast_rate = 12000;
+		mcast_rate = 12000,
 	},
   },
 
@@ -46,7 +44,7 @@
 
   mesh_vpn = {
      enabled = true,
-     mtu = 1312,
+     mtu = 1364,
 
   bandwidth_limit = {
      enabled = false,
@@ -57,10 +55,9 @@
 
   autoupdater = {
     branch = 'stable',
-
     branches = {
       stable = {
-        name = 'stable',
+        name = 'Stable',
         -- List of mirrors to fetch images from. IPv6 required!
         mirrors = {'http://update.freifunk-lippe.de/stable/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/lip/upgrade'},
         good_signatures = 2,
@@ -73,6 +70,7 @@
         },
       },
     },
+
   },
 
   ssid_changer = {
