@@ -10,7 +10,7 @@
 ###############################################################################
 
 # Variablen ###################################################################
-SITES=(lip)
+SITES=(lip spz)
 SSID=(lippe)
 SSIDEX=(lippe)
 
@@ -28,20 +28,6 @@ create_stable_configs(){
     done
 }
 
-# Erzeuge Configs fuer Stable-Extended-Branch
-create_stable-ext_configs(){
-  mkdir -p sites-stable-ext
-  typeset -i i=0
-    for SITE in "${SITES[@]}"
-      do
-        mkdir -p sites-stable-ext/$SITE
-        sed "s/\<lip\>/$SITE/g" site.conf.stable-ext.example | sed "s/\<d1lip\>/d1$SITE/g" > sites-stable-ext/$SITE/site.conf
-        sed "s/\<lip\>/$SITE/g" site.mk.stable-ext.example > sites-stable-ext/$SITE/site.mk
-        i=$i+1
-    done
-}
-
 # Hauptprogramm ###############################################################
 create_stable_configs
-create_stable-ext_configs
 exit

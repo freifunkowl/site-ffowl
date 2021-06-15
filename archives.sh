@@ -8,8 +8,8 @@
 IMAGE_PATH="/home/michael/fflip-fw/firmware/images-stable"
 ARCHIVE_PATH="/home/michael/fflip-fw/firmware/archives"
 ERROR_LOG="/home/michael/fflip-fw/firmware/logs/error.log"
-VERSION="1.3.0"
-D1=( lip )
+VERSION="1.5.0"
+D1=( lip spz tst )
 
 # Functions ##################################################################
 usage()
@@ -63,19 +63,44 @@ fi
 
 for town in "${D1[@]}"
   do
-    if [ -e "${ARCHIVE_PATH}/all_factory_images_${VERSION}".zip ]
+    if [ -e "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip ]
     then
-      /bin/rm "${ARCHIVE_PATH}/all_factory_images_${VERSION}".zip
+      /bin/rm "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip
     fi
-    if [ -e "${ARCHIVE_PATH}/all_sysupgrade_images_${VERSION}".zip ]
+    if [ -e "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip ]
     then
-      /bin/rm "${ARCHIVE_PATH}/all_sysupgrade_images_${VERSION}".zip
+      /bin/rm "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip
     fi
 
-    /usr/bin/zip -j "${ARCHIVE_PATH}/all_factory_images_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
-    /usr/bin/zip -j "${ARCHIVE_PATH}/all_sysupgrade_images_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
+    if [ ${town} = lip ]; then
 
-done
+        /usr/bin/zip -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
+        /usr/bin/zip -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
+
+    fi
+
+    if [ ${town} = spz ]; then
+
+        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
+        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
+
+    fi
+
+    if [ ${town} = tst ]; then
+
+        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
+        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
+
+    fi
+
+    if [ ${town} = mon ]; then
+
+        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
+        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
+
+    fi
+
+  done
 
 md5sum "${ARCHIVE_PATH}"/* > "${ARCHIVE_PATH}"/pruefsummen.md5
 sed -i -r "s/ .*\/(.+)/  \1/g" "${ARCHIVE_PATH}"/pruefsummen.md5

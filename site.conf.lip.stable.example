@@ -1,7 +1,7 @@
 {
   site_name = 'Freifunk Lippe',
   site_code = 'fflip',
-  default_domain = 'dom1',
+  default_domain = 'd1',
 
   timezone = 'CET-1CEST,M3.5.0,M10.5.0/3',
   ntp_server = {'0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org'},
@@ -75,7 +75,7 @@
 
   ssid_changer = {
     enabled = true,
-    switch_timeframe = 30,    -- only once every timeframe (in minutes) the SSID will change to the Offline-SSID 
+    switch_timeframe = 15,    -- only once every timeframe (in minutes) the SSID will change to the Offline-SSID 
                               -- set to 1440 to change once a day
                               -- set to 1 minute to change every time the router gets offline
     first = 5,                -- the first few minutes directly after reboot within which an Offline-SSID always may be activated (must be <= switch_timeframe)

@@ -5,16 +5,29 @@
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
 # Modified by: Tronde at 2016-04-21
-# Modified by: Collimas at 2018-07-10
+# Modified by: Collimas at 2020-07-08
 
 # Voraussetzungen #############################################################
 DIR=`pwd`
-$DIR/mksites.sh
+rm /tmp/buildstate
+touch /tmp/buildstate
+mkdir -p $DIR/sites-stable/lip
+cp $DIR/site.conf.lip.stable.example $DIR/sites-stable/lip/
+cp $DIR/site.mk.lip.stable.example $DIR/sites-stable/lip/
+mkdir -p $DIR/sites-stable/spz
+cp $DIR/site.conf.spz.stable.example $DIR/sites-stable/spz/
+cp $DIR/site.mk.spz.stable.example $DIR/sites-stable/spz/
+mkdir -p $DIR/sites-stable/tst
+cp $DIR/site.conf.tst.stable.example $DIR/sites-stable/tst/
+cp $DIR/site.mk.tst.stable.example $DIR/sites-stable/tst/
+#mkdir -p $DIR/sites-stable/mon
+#cp $DIR/site.conf.mon.stable.example $DIR/sites-stable/mon/
+#cp $DIR/site.mk.mon.stable.example $DIR/sites-stable/mon/
 
 # Variables ###################################################################
-RELEASE="v2020.1.3"
+BRANCH="v2021.1.x"
+RELEASE="v2021.1"
 SITES=(`ls $DIR/sites-stable`)
-SITESEXT=(`ls $DIR/sites-stable-ext`)
 #
 CORES=12 # Specifies the number of jobs (commands) to run simultaneously.
 SECRET=$DIR/secret
@@ -24,39 +37,143 @@ SECRET=$DIR/secret
 
 build_stable_branch(){
 
-rm -rf $DIR/domains
-mkdir $DIR/domains
-cp $DIR/domains-templates/d*.conf $DIR/domains
-
   for SITE in "${SITES[@]}"
     do
-      cp -r $DIR/sites-stable/$SITE/*.* $DIR/gluon/site/
+      rm $DIR/gluon/site/site.*
+      rm -rf $DIR/gluon/site/domains/
+      mkdir -p $DIR/gluon/site/domains/
+      cp $DIR/sites-stable/$SITE/site.conf.$SITE.stable.example $DIR/gluon/site/site.conf
+      cp $DIR/sites-stable/$SITE/site.mk.$SITE.stable.example $DIR/gluon/site/site.mk
+      cp $DIR/domains-templates/$SITE/*.conf $DIR/gluon/site/domains/
       cd $DIR/gluon/
       make update
       # This creates images for the stable branch
+      echo >>/tmp/buildstate 'Compiling firmware...'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-tiny V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '01 of 24 targets finished in' $((after - $before)) 'seconds [ar71xx-tiny]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ath79-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '02 of 24 targets finished in' $((after - $before)) 'seconds [ar71xx-generic]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-nand V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '03 of 24 targets finished in' $((after - $before)) 'seconds [ar71xx-nand]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ar71xx-mikrotik V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '04 of 24 targets finished in' $((after - $before)) 'seconds [ar71xx-mikrotik]'
+
+      before=$(date +%s)
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ath79-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '05 of 24 targets finished in' $((after - $before)) 'seconds [ath79-generic]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '06 of 24 targets finished in' $((after - $before)) 'seconds [mpc85xx-generic]'
+
+      before=$(date +%s)
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mpc85xx-p1020 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '07 of 24 targets finished in' $((after - $before)) 'seconds [mpc85xx-p1020]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-mt7620 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '08 of 24 targets finished in' $((after - $before)) 'seconds [ramips-mt7620]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-mt7621 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '09 of 24 targets finished in' $((after - $before)) 'seconds [ramips-mt7621]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-mt76x8 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '10 of 24 targets finished in' $((after - $before)) 'seconds [ramips-mt76x8]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ramips-rt305x V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '11 of 24 targets finished in' $((after - $before)) 'seconds [ramips-rt305x]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ipq806x-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '12 of 24 targets finished in' $((after - $before)) 'seconds [ipq806x-generic]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=ipq40xx-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mvebu-cortexa9 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      cp -r $DIR/sites-stable-ext/$SITE/*.* $DIR/gluon/site/
+      after=$(date +%s)
+      echo >>/tmp/buildstate '13 of 24 targets finished in' $((after - $before)) 'seconds [ipq40xx-generic]'
+
+      before=$(date +%s)
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=mvebu-cortexa9 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log      
+      after=$(date +%s)
+      echo >>/tmp/buildstate '14 of 24 targets finished in' $((after - $before)) 'seconds [mvebu-cortexa9]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=brcm2708-bcm2708 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '15 of 24 targets finished in' $((after - $before)) 'seconds [brcm2708-bcm2708]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=brcm2708-bcm2709 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '16 of 24 targets finished in' $((after - $before)) 'seconds [brcm2708-bcm2709]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=brcm2708-bcm2710 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '17 of 24 targets finished in' $((after - $before)) 'seconds [brcm2708-bcm2710]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=sunxi-cortexa7 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '18 of 24 targets finished in' $((after - $before)) 'seconds [sunxi-cortexa7]'
+
+      before=$(date +%s)
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=lantiq-xrx200 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '19 of 24 targets finished in' $((after - $before)) 'seconds [lantiq-xrx200]'
+
+      before=$(date +%s)
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=lantiq-xway V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '20 of 24 targets finished in' $((after - $before)) 'seconds [lantiq-xway]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '21 of 24 targets finished in' $((after - $before)) 'seconds [x86-64]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '22 of 24 targets finished in' $((after - $before)) 'seconds [x86-generic]'
+
+      before=$(date +%s)
       time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '23 of 24 targets finished in' $((after - $before)) 'seconds [x86-geode]'
+
+      before=$(date +%s)
+      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=x86-legacy V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
+      after=$(date +%s)
+      echo >>/tmp/buildstate '24 of 24 targets finished in' $((after - $before)) 'seconds [x86-legacy]'
+
       make manifest BROKEN=1 GLUON_BRANCH=stable
-      ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
+      echo >>/tmp/buildstate 'Manifest created.'
+      ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest
+      echo >>/tmp/buildstate 'Signed.'
       mkdir -p output/images-stable/$SITE
       mv -f output/images/factory output/images-stable/$SITE/
       md5sum output/images-stable/$SITE/factory/* > output/images-stable/$SITE/factory/pruefsummen.md5
@@ -64,58 +181,17 @@ cp $DIR/domains-templates/d*.conf $DIR/domains
       mv -f output/images/sysupgrade output/images-stable/$SITE/
       md5sum output/images-stable/$SITE/sysupgrade/* > output/images-stable/$SITE/sysupgrade/pruefsummen.md5
       sed -i -r "s/ .*\/(.+)/  \1/g" output/images-stable/$SITE/sysupgrade/pruefsummen.md5
-      mv -f output/images/other output/images-stable
+      mv -f output/images/other output/images-stable/$SITE/
       rm $DIR/gluon/site/site.*
       mkdir -p $DIR/gluon/output/images-stable/logs
       mv $DIR/gluon/make*.log output/images-stable/logs
-      echo "Finished building Stable branch."
-  done
-}
-
-build_stable_ext_branch(){
-
-rm -rf $DIR/domains
-mkdir $DIR/domains
-cp $DIR/domains-templates/d*.conf $DIR/domains
-
-  for SITE in "${SITESEXT[@]}"
-    do
-      cp -r $DIR/sites-stable-ext/$SITE/*.* $DIR/gluon/site/
-      cd $DIR/gluon/
-      make update
-      # This creates images for the stable_ext branch
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=brcm2708-bcm2708 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=brcm2708-bcm2709 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=brcm2708-bcm2710 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=sunxi-cortexa7 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=x86-64 V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=x86-generic V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      time make -j$CORES BROKEN=1 GLUON_BRANCH=stable GLUON_TARGET=x86-geode V=99 2>&1 | tee make_$SITE_$(date +%y%m%d_%H%M).log
-      make manifest BROKEN=1 GLUON_BRANCH=stable
-      ./contrib/sign.sh $SECRET output/images/sysupgrade/stable.manifest   
-      mkdir -p output/images-stable-ext/$SITE
-      mv -f output/images/factory output/images-stable-ext/$SITE/
-      md5sum output/images-stable-ext/$SITE/factory/* > output/images-stable-ext/$SITE/factory/pruefsummen.md5
-      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-stable-ext/$SITE/factory/pruefsummen.md5 
-      mv -f output/images/sysupgrade output/images-stable-ext/$SITE/
-      md5sum output/images-stable-ext/$SITE/sysupgrade/* > output/images-stable-ext/$SITE/sysupgrade/pruefsummen.md5
-      sed -i -r "s/ .*\/(.+)/  \1/g" output/images-stable-ext/$SITE/sysupgrade/pruefsummen.md5
-      rm $DIR/gluon/site/site.*
-      rm -rf output/images
-      mkdir -p $DIR/gluon/output/images-stable-ext/logs
-      mv $DIR/gluon/make*.log output/images-stable-ext/logs
-      echo "Finished building Stable Extended branch."
+      echo >>/tmp/buildstate 'Finished building Stable branch: '$SITE
   done
 }
 
 create_logs_stable(){
   tar -czvf $DIR/gluon/output/buildlog_stable.tar $DIR/gluon/output/images-stable/logs
   rm -rf $DIR/gluon/output/images-stable/logs
-}
-
-create_logs_stable_ext(){
-  tar -czvf $DIR/gluon/output/buildlog_stable_ext.tar $DIR/gluon/output/images-stable-ext/logs
-  rm -rf $DIR/gluon/output/images-stable-ext/logs
 }
 
 # If gluon directory exists update to latest master and push this into actual repo
@@ -126,33 +202,25 @@ if [ -d "$DIR/gluon" ]
         mkdir -p $DIR/gluon/site
       fi
     cp $DIR/sites-stable/lip/site.* $DIR/gluon/site/
-    #make dirclean
-    #make update
-    git pull
-    git submodule update --remote gluon
+    make update
   else
     # If gluon directory does not exist do a fresh clone frome the Freifunk-Gluon Repo
     cd $DIR
     # Checkout regular source
-    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $RELEASE
-    git remote add gluon https://github.com/freifunk-gluon/gluon.git
+    git clone https://github.com/freifunk-gluon/gluon.git gluon -b $BRANCH
+    cd $DIR/gluon
+    git checkout $RELEASE
     mkdir -p $DIR/gluon/site
     cp $DIR/sites-stable/lip/site.* $DIR/gluon/site/
-    cd $DIR/gluon
-    #git pull
-    git submodule update #--remote gluon
-    #make update
+    make update
 fi
 
 cp $DIR/sign.sh $DIR/gluon/contrib/
 cp $DIR/modules $DIR/gluon/site/
 cp -r $DIR/i18n/ $DIR/gluon/site/
-cp -r $DIR/domains/ $DIR/gluon/site/
 
 # This creates the stable branch
 build_stable_branch
 create_logs_stable
-#build_stable_ext_branch
-#create_logs_stable_ext
 
 exit
