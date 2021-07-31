@@ -1,7 +1,7 @@
-# site-ffl
-Site-Konfigurationsdateien für Freifunk-Lippe
+# site-ffowl
+Site-Konfigurationsdateien für Freifunk OWL
 
-Die Freifunk-Lippe-Firmware basiert auf den folgenden Gluon Versionen:
+Die Freifunk-OWL-Firmware basiert auf den folgenden Gluon Versionen:
 
 
 * 1.5.0 -> Gluon 2021.1
