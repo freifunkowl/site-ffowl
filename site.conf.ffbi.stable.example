@@ -1,7 +1,7 @@
 {
-  site_name = 'Freifunk Lippe',
-  site_code = 'fflip',
-  default_domain = 'd1',
+  site_name = 'Freifunk Bielefeld',
+  site_code = 'ffbi',
+  default_domain = 'd48',
 
   timezone = 'CET-1CEST,M3.5.0,M10.5.0/3',
   ntp_server = {'0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org'},
@@ -59,7 +59,7 @@
       stable = {
         name = 'Stable',
         -- List of mirrors to fetch images from. IPv6 required!
-        mirrors = {'http://update.freifunk-lippe.de/stable/lip/upgrade', 'http://update2.freifunk-lippe.de/stable/lip/upgrade'},
+        mirrors = {'http://update.freifunk-bielefeld.de/stable/ffbi/upgrade', 'http://update2.freifunk-bielefeld.de/stable/ffbi/upgrade'},
         good_signatures = 2,
         -- List of public keys of maintainers.
         pubkeys = {

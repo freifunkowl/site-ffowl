@@ -5,24 +5,15 @@
 # Created by: Collimas
 # Modified by: Tronde at 2015-10-31
 # Modified by: Tronde at 2016-04-21
-# Modified by: Collimas at 2020-07-08
+# Modified by: Collimas at 2021-07-31
 
 # Voraussetzungen #############################################################
 DIR=`pwd`
 rm /tmp/buildstate
 touch /tmp/buildstate
-mkdir -p $DIR/sites-stable/lip
-cp $DIR/site.conf.lip.stable.example $DIR/sites-stable/lip/
-cp $DIR/site.mk.lip.stable.example $DIR/sites-stable/lip/
-mkdir -p $DIR/sites-stable/spz
-cp $DIR/site.conf.spz.stable.example $DIR/sites-stable/spz/
-cp $DIR/site.mk.spz.stable.example $DIR/sites-stable/spz/
-mkdir -p $DIR/sites-stable/tst
-cp $DIR/site.conf.tst.stable.example $DIR/sites-stable/tst/
-cp $DIR/site.mk.tst.stable.example $DIR/sites-stable/tst/
-#mkdir -p $DIR/sites-stable/mon
-#cp $DIR/site.conf.mon.stable.example $DIR/sites-stable/mon/
-#cp $DIR/site.mk.mon.stable.example $DIR/sites-stable/mon/
+mkdir -p $DIR/sites-stable/ffbi
+cp $DIR/site.conf.ffbi.stable.example $DIR/sites-stable/ffbi/
+cp $DIR/site.mk.ffbi.stable.example $DIR/sites-stable/ffbi/
 
 # Variables ###################################################################
 BRANCH="v2021.1.x"

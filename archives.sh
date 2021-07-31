@@ -5,11 +5,11 @@
 # Requirements: /usr/bin/zip
 
 # Variables ##################################################################
-IMAGE_PATH="/home/michael/fflip-fw/firmware/images-stable"
-ARCHIVE_PATH="/home/michael/fflip-fw/firmware/archives"
-ERROR_LOG="/home/michael/fflip-fw/firmware/logs/error.log"
+IMAGE_PATH="/home/michael/ffowl-fw/firmware/images-stable"
+ARCHIVE_PATH="/home/michael/ffowl-fw/firmware/archives"
+ERROR_LOG="/home/michael/ffowl-fw/firmware/logs/error.log"
 VERSION="1.5.0"
-D1=( lip spz tst )
+D1=( ffbi )
 
 # Functions ##################################################################
 usage()
