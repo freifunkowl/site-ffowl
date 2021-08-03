@@ -72,31 +72,10 @@ for town in "${D1[@]}"
       /bin/rm "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip
     fi
 
-    if [ ${town} = lip ]; then
+    if [ ${town} = ffbi ]; then
 
         /usr/bin/zip -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
         /usr/bin/zip -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
-
-    fi
-
-    if [ ${town} = spz ]; then
-
-        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
-        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
-
-    fi
-
-    if [ ${town} = tst ]; then
-
-        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
-        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
-
-    fi
-
-    if [ ${town} = mon ]; then
-
-        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_factory_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
-        /usr/bin/zip -P 1MsiWgsus -j "${ARCHIVE_PATH}/all_sysupgrade_images_${town}_${VERSION}".zip "${IMAGE_PATH}"/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
 
     fi
 

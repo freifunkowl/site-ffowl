@@ -44,20 +44,20 @@ copy_sysupgrade_images_stable(){
 copy_myupgrade_images(){
 
 mkdir -p /home/michael/ffowl-fw/firmware/myupgrade
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-tl-wr841n-nd-v9-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr841v9.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-tl-wr841n-nd-v11-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr841v11.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-tl-wr1043n-nd-v2-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr1043v2.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-tl-wr1043n-nd-v4-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr1043v4.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-tl-wr1043n-v5-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr1043v5.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-tl-wdr3600-v1-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wdr3600v1.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-tl-wdr4300-v1-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wdr4300v1.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-archer-c7-v2-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/archerc7v2.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-ubnt-erx-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/ubnterx.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-ubiquiti-unifi-ac-mesh-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/unifiacmesh.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-ubiquiti-unifi-ac-lite-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/unifiaclite.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-archer-c50-v3-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/archerc50v3.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-tp-link-archer-c50-v4-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/archerc50v4.bin
-cp /home/michael/ffowl-fw/firmware/images-stable/lip/sysupgrade/gluon-fflip-??????????????-netgear-r6120-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/r6120.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-tl-wr841n-nd-v9-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr841v9.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-tl-wr841n-nd-v11-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr841v11.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-tl-wr1043n-nd-v2-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr1043v2.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-tl-wr1043n-nd-v4-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr1043v4.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-tl-wr1043n-v5-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wr1043v5.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-tl-wdr3600-v1-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wdr3600v1.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-tl-wdr4300-v1-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/wdr4300v1.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-archer-c7-v2-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/archerc7v2.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-ubnt-erx-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/ubnterx.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-ubiquiti-unifi-ac-mesh-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/unifiacmesh.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-ubiquiti-unifi-ac-lite-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/unifiaclite.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-archer-c50-v3-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/archerc50v3.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-tp-link-archer-c50-v4-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/archerc50v4.bin
+cp /home/michael/ffowl-fw/firmware/images-stable/ffbi/sysupgrade/gluon-ffbi-??????????????-netgear-r6120-sysupgrade.bin /home/michael/ffowl-fw/firmware/myupgrade/r6120.bin
 
 
 }
